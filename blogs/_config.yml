@@ -4,10 +4,10 @@
 
 # Site
 title: Zhiyuan Yang
-subtitle: 一生温暖纯良，不舍爱与自由。
+subtitle: 一生温暖纯良，不舍爱与自由
 description:
-author: Zhiyuan Yang
-language: Chinese
+author: Yuan
+language: zh-Hans
 timezone:
 
 # URL
@@ -70,4 +70,3 @@ theme: next
 deploy:
   type: git
   repo: https://github.com/qazyuan/qazyuan.github.io.git
-
