@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: y追忆
-subtitle: 温暖纯良，不舍爱与自由。
+title: Zhiyuan Yang
+subtitle: 一生温暖纯良，不舍爱与自由。
 description:
 author: Zhiyuan Yang
-language:
+language: Chinese
 timezone:
 
 # URL
@@ -63,9 +63,11 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: https://github.com/qazyuan/qazyuan.github.io.git
+
