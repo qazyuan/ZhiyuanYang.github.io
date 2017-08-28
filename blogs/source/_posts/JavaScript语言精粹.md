@@ -11,31 +11,33 @@ categories: notes
 
 
 ### 第二章 语法
-##### 空白
+#### 空白
 - 分隔字符序列
 - 注释：两种方法// /**/
-##### 标识符
+
+#### 标识符
 - 由一个字母开头，其后可选择性地加上一个或者多个字母、数字或下划线
 - 用于语句、变量、参数、属性名、运算符和标记
-##### 数字
+
+#### 数字
 - 只有一个数字类型，它的内部被表示为64位浮点数
 - NaN是一个数值，不能产生正常结果的运算结果 isNaN(number)检测NaN
-##### 字符串
+
+#### 字符串
 - 转义字符 “\”
 
-##### 语句
+#### 语句
+
 - 语句通常是按照从上到下的顺序被执行。JavaScript可以通过条件语句(if和switch)、循环语句(while, for 和 do)、强制跳转语句(break、return、和throw)和函数调用来改变语句执行序列
 - try语句执行一个代码块，并捕获该代码块抛出的任何异常。catch从句定义一个新的变量variable来接收抛出的异常对象。
 - throw语句抛出一个异常。如果throw语句在一个try代码块中，那么控制流会跳转到catch从句中。如果throw语句在函数中，则该函数调用被抛弃，控制流跳转到调用该函数的try语句的catch从句中。
 
-##### 表达式
+#### 表达式
 
-##### 字面量
+#### 字面量
 - 一种可以方便地按指定规格创建新对象的表示法。
 
-##### 函数
-
-
+#### 函数
 
 ### 第三章 对象
 - js简单数据类型：数字、字符串、布尔值、null值和undefined值。
@@ -43,7 +45,7 @@ categories: notes
 - 对象是属性的容器，每个属性都拥有名字和值。 js里的对象是无类型(class-free)的：它对新属性的名字和属性的值没有限制。
 - js包含一种原型链的特性，允许对象继承另一个对象的属性。
 
-##### 对象字面量
+#### 对象字面量
     一个对象字面量就是包围在一对花括号中的0或多个“名/值”对。
 ```
 var flight = {
@@ -196,7 +198,7 @@ var add = function (a, b) {
 
 调用运算符是跟在任何一个函数值的表达式之后的一对圆括号。圆括号内可包含0个或多个用逗号隔开的表达式。
 
-###### this
+#### this
 this的四种调用模式：方法调用模式、函数调用模式、构造器调用模式和apply调用模式。<这些模式在如何初始化关键参数this上存在差异>
 ```
 - 方法调用
@@ -293,7 +295,7 @@ this的四种调用模式：方法调用模式、函数调用模式、构造器�
         console.log(status); //输出为'A-OK'
 
 ```
-###### 参数
+#### 参数
     当函数被调用时，得到arguments数组。
     函数可以通过此参数访问所有它被调用时传递给它的参数列表。
 
@@ -777,6 +779,7 @@ match() 方法可在字符串内检索指定的值，或找到一个或多个正
     console.log(a);
     // a和b都是['c', 'b', 'a'];
 ```
+
 6. array.shift()
 ```
 // 该方法移除数组array中的第一个元素并返回该元素。
@@ -801,6 +804,7 @@ match() 方法可在字符串内检索指定的值，或找到一个或多个正
             console.log(c); // 'b', 'c'
             console.log(d); // 'b'
 ```
+
 8.array.sort(comparefn)
 // 默认是字符串排序
 
@@ -812,10 +816,10 @@ match() 方法可在字符串内检索指定的值，或找到一个或多个正
         console.log(r)
 ```
 
-##### Function
+#### Function
 function.apply(thisArg, argArray)
 
-##### Number
+#### Number
 1. number.toExponential(fractionDigits)
 ```
 // 把number转换成一个之书形式的字符串。
@@ -845,18 +849,18 @@ function.apply(thisArg, argArray)
 
 ```
 
-##### Object
+#### Object
 object.hasOwnProperty(name)
     如果这个object包含了一个名为name的属性，那么hasOwnProperty方法返回true. 原型链中的同名属性是不会被检查的。返回为false
 
-##### RegExp
+#### RegExp
 1. regexp.exec(string)
 如果它成功匹配regexp和字符串string,它会返回一个数组。数组中下标为0的元素将包含正则表达式regexp匹配的子字符串。下标为i的元素是分组i捕获的文本。如果匹配失败，那么它会返回null
 
 2. regexp.test(string)
 如果该regexp匹配string，它返回true;否则返回false
 
-##### String
+#### String
 1. string.chartAt(pos)
 ```
 // 返回在string中pos位置处的字符
