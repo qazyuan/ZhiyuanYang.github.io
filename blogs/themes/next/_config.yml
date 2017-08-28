@@ -20,7 +20,7 @@ rss:
 authoricon: heart
 
 # Footer `powered-by` and `theme-info` copyright
-copyright: true
+# copyright: true
 
 
 # Canonical, set a canonical link tag in your hexo, you could use it for your SEO of blog.
