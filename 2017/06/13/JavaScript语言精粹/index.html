@@ -1,0 +1,961 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JS,notes," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="第一章 精华 JavaScript是Web浏览器的语言，与浏览器的结合使它成为世界上最流行的编程语言之一 优秀的想法：函数、弱类型、动态对象、对象字面量表示法(基于json)、原型继承  第二章 语法空白 分隔字符序列 注释：两种方法// /**/标识符 由一个字母开头，其后可选择性地加上一个或者多个字母、数字或下划线 用于语句、变量、参数、属性名、运算符和标记数字 只有一个数字类型，它的内部被表">
+<meta name="keywords" content="JS,notes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javaScript语言精粹笔记">
+<meta property="og:url" content="http://yoursite.com/2017/06/13/JavaScript语言精粹/index.html">
+<meta property="og:site_name" content="Zhiyuan Yang">
+<meta property="og:description" content="第一章 精华 JavaScript是Web浏览器的语言，与浏览器的结合使它成为世界上最流行的编程语言之一 优秀的想法：函数、弱类型、动态对象、对象字面量表示法(基于json)、原型继承  第二章 语法空白 分隔字符序列 注释：两种方法// /**/标识符 由一个字母开头，其后可选择性地加上一个或者多个字母、数字或下划线 用于语句、变量、参数、属性名、运算符和标记数字 只有一个数字类型，它的内部被表">
+<meta property="og:updated_time" content="2017-06-21T12:24:08.323Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javaScript语言精粹笔记">
+<meta name="twitter:description" content="第一章 精华 JavaScript是Web浏览器的语言，与浏览器的结合使它成为世界上最流行的编程语言之一 优秀的想法：函数、弱类型、动态对象、对象字面量表示法(基于json)、原型继承  第二章 语法空白 分隔字符序列 注释：两种方法// /**/标识符 由一个字母开头，其后可选择性地加上一个或者多个字母、数字或下划线 用于语句、变量、参数、属性名、运算符和标记数字 只有一个数字类型，它的内部被表">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/13/JavaScript语言精粹/"/>
+
+
+
+
+
+  <title> javaScript语言精粹笔记 | Zhiyuan Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhiyuan Yang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/13/JavaScript语言精粹/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/qazyuan.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhiyuan Yang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                javaScript语言精粹笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-13T02:10:45+08:00">
+                2017-06-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/notes/" itemprop="url" rel="index">
+                    <span itemprop="name">notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="第一章-精华"><a href="#第一章-精华" class="headerlink" title="第一章 精华"></a>第一章 精华</h3><ul>
+<li>JavaScript是Web浏览器的语言，与浏览器的结合使它成为世界上最流行的编程语言之一</li>
+<li>优秀的想法：函数、弱类型、动态对象、对象字面量表示法(基于json)、原型继承</li>
+</ul>
+<h3 id="第二章-语法"><a href="#第二章-语法" class="headerlink" title="第二章 语法"></a>第二章 语法</h3><h5 id="空白"><a href="#空白" class="headerlink" title="空白"></a>空白</h5><ul>
+<li>分隔字符序列</li>
+<li>注释：两种方法// /**/<h5 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h5></li>
+<li>由一个字母开头，其后可选择性地加上一个或者多个字母、数字或下划线</li>
+<li>用于语句、变量、参数、属性名、运算符和标记<h5 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h5></li>
+<li>只有一个数字类型，它的内部被表示为64位浮点数</li>
+<li>NaN是一个数值，不能产生正常结果的运算结果 isNaN(number)检测NaN<h5 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h5></li>
+<li>转义字符 “\”</li>
+</ul>
+<h5 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h5><ul>
+<li>语句通常是按照从上到下的顺序被执行。JavaScript可以通过条件语句(if和switch)、循环语句(while, for 和 do)、强制跳转语句(break、return、和throw)和函数调用来改变语句执行序列</li>
+<li>try语句执行一个代码块，并捕获该代码块抛出的任何异常。catch从句定义一个新的变量variable来接收抛出的异常对象。</li>
+<li>throw语句抛出一个异常。如果throw语句在一个try代码块中，那么控制流会跳转到catch从句中。如果throw语句在函数中，则该函数调用被抛弃，控制流跳转到调用该函数的try语句的catch从句中。</li>
+</ul>
+<h5 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h5><h5 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h5><ul>
+<li>一种可以方便地按指定规格创建新对象的表示法。</li>
+</ul>
+<h5 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h5><h3 id="第三章-对象"><a href="#第三章-对象" class="headerlink" title="第三章 对象"></a>第三章 对象</h3><ul>
+<li>js简单数据类型：数字、字符串、布尔值、null值和undefined值。</li>
+<li>对象是可变的键控集合，数组、函数、正则表达式都是对象</li>
+<li>对象是属性的容器，每个属性都拥有名字和值。 js里的对象是无类型(class-free)的：它对新属性的名字和属性的值没有限制。</li>
+<li>js包含一种原型链的特性，允许对象继承另一个对象的属性。</li>
+</ul>
+<h5 id="对象字面量"><a href="#对象字面量" class="headerlink" title="对象字面量"></a>对象字面量</h5><pre><code>一个对象字面量就是包围在一对花括号中的0或多个“名/值”对。
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var flight = &#123;</div><div class="line">    airline: &quot;One&quot;,</div><div class="line">    number: 715,</div><div class="line">    departure: &#123;</div><div class="line">        IATA: &quot;jjj&quot;,</div><div class="line">        time: &quot;2017&quot;,</div><div class="line">        city: &quot;shanghai&quot;</div><div class="line">    &#125;,</div><div class="line">    arrival: &#123;</div><div class="line">        time: &quot;2018&quot;,</div><div class="line">        city: &quot;xian&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="检索"><a href="#检索" class="headerlink" title="检索"></a>检索</h4><pre><code>要检索对象里包含的值，可以采用在[]后缀中括住一个字符串表达式的方式。也可以用.表示法代替
+    console.log(flight.arrival[&quot;time&quot;]);  ----2018
+    console.log(flight.arrival.time);     ----2018
+||运算符可以用来填充默认值
+    var middle = flight.arrivar.time || &quot; &quot;
+</code></pre><h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><pre><code>对象里可以通过赋值语句来更新。
+如果属性名已经存在于对象里，那么这个属性的值就会被替换
+如果对象之前没有该属性名，那么该属性就被扩充到对象中。
+</code></pre><h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><pre><code>对象通过引用来传递。它们永远不会被赋值
+var x = stooge;
+x.nickname = &quot;Curly&quot;; //x和stooge是指向同一个对象的引用
+
+var a = {}, b= {}, c = {};// a、b、c每个都引用一个不同的空对象
+</code></pre><h4 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h4><ul>
+<li>每个对象都连接到一个原型对象，并且它可以从中继承属性。所有通过对象字面量创建的对象都连接到Object.prototype,它是JavaScript中标配的对象。</li>
+<li>原型连接在更新时是不起作用的。当我们对某个对象作出改变时，不会触及该对象的原型。</li>
+<li>原型连接只有在检索值得时候才会用到。当我们尝试去获取对象的某个属性值，但该对象没有此属性名，那么js会试着从原型对象中获取属性值。如果那个原型对象也没有该属性，那么再从它的原型中寻找。</li>
+<li>原型关系是一种动态的关系。如果我们添加一个新的属性到原型中，该属性会立即对所有基于该原型创建的对象可见</li>
+</ul>
+<h4 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">typeof操作符对确定属性的类型是很有帮助的</div><div class="line">注：原型链中的任何属性都会产生值</div><div class="line">typeof(flight.toString)  //&apos;function&apos;</div><div class="line">typeof(flight.constructor)  //&apos;function&apos;</div><div class="line"></div><div class="line">有两种方法去处理掉这些不需要的属性：</div><div class="line">1.让程序检查并丢弃值为函数的属性</div><div class="line">2.使用hasOwnProperty()方法，如果对象拥有独有的属性将返回true, 原型链中的属性返回false</div></pre></td></tr></table></figure>
+<h4 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h4><p>for in语句可以遍历一个对象中所有的属性名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var flight = &#123;</div><div class="line">    airline: &quot;One&quot;,</div><div class="line">    number: 715</div><div class="line">&#125;</div><div class="line"></div><div class="line">for(var name in flight) &#123;</div><div class="line">    if(flight)&#123;</div><div class="line">        console.log(flight[name] + &apos;\n&apos;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// One 715</div></pre></td></tr></table></figure></p>
+<p>可以创建数组，在其中以正确的顺序包含属性名，然后可以以键值对的形式输出对象各个属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var properties = [&apos;airline&apos;,&apos;number&apos;];</div><div class="line">for(var i = 0; i &lt;properties.length; i++) &#123;</div><div class="line">    console.log(properties[i] + &apos;:&apos; + flight[properties[i]]);</div><div class="line">&#125;</div><div class="line">// airline:One</div><div class="line">// chapter1.js:84 number:715</div></pre></td></tr></table></figure></p>
+<p>取对象属性的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function allPros (obj) &#123;</div><div class="line">    for(var name in obj) &#123;</div><div class="line">        if(obj)&#123;</div><div class="line">            if(typeof(obj[name]) == &apos;object&apos;) &#123;</div><div class="line">                for(var secName in obj[name]) &#123;</div><div class="line">                    console.log(secName + &apos;:&apos; + obj[name][secName]);</div><div class="line">                &#125;</div><div class="line">            &#125; else &#123;</div><div class="line">                console.log(name + &apos;:&apos; + obj[name] + &apos;\n&apos;);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">allPros(flight);</div></pre></td></tr></table></figure></p>
+<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><p>delete运算符可以用来删除对象的属性。如果对象包含该属性，那么该属性就会被移除。不会触及原型链中的任何对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var stooge = &#123;</div><div class="line">    first_name: &apos;liu&apos;,</div><div class="line">    second_name: &apos;tongtong&apos;</div><div class="line">&#125;;</div><div class="line">var another_stooge = Object.create(stooge);</div><div class="line">another_stooge[&apos;first_name&apos;] = &apos;yang&apos;;</div><div class="line"></div><div class="line">console.log(another_stooge[&apos;first_name&apos;]); //yang</div><div class="line">// 删除对象的属性可能会让来自原型链中的属性透现出来</div><div class="line">delete another_stooge[&apos;first_name&apos;];</div><div class="line">console.log(another_stooge[&apos;first_name&apos;]); //liu</div></pre></td></tr></table></figure>
+<h4 id="减少全局变量污染"><a href="#减少全局变量污染" class="headerlink" title="减少全局变量污染"></a>减少全局变量污染</h4><p>JavaScript可以随意地定义全局变量来容纳你的应用的所有资源。但是全局变量削弱了程序的灵活性，应该避免使用。</p>
+<p>最小化使用全局变量的方法是指穿件一个唯一的全局变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var Myapp = &#123;&#125;;</div><div class="line">Myapp.flight = &#123;....&#125;;</div><div class="line">Myapp.name = &#123;....&#125;;</div></pre></td></tr></table></figure>
+<h3 id="第四章-函数"><a href="#第四章-函数" class="headerlink" title="第四章 函数"></a>第四章 函数</h3><h4 id="函数对象"><a href="#函数对象" class="headerlink" title="函数对象"></a>函数对象</h4><p>JavaScript中的函数就是对象。每个函数对象在创建时也分配一个prototype属性。它的值是一个拥有constructor属性且值为该函数的对象。<br>函数是对象，所以它可以像任何其他的值一样被使用。函数可以保存在变量、对象和数组中。函数可以被当作参数传递给其他函数，函数也可再返回函数，函数也可以拥有方法。它的不同之处在于它们可以被调用。</p>
+<h4 id="函数字面量"><a href="#函数字面量" class="headerlink" title="函数字面量"></a>函数字面量</h4><p>函数对象通过函数字面量来创建<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var add = function (a, b) &#123;</div><div class="line">    return a + b;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">函数字面量包括4个部分：</div><div class="line">- 保留字 function</div><div class="line">- 函数名，可省略</div><div class="line">- 参数，多个参数用逗号分隔</div><div class="line">- 大括号的一组语句。函数的主体，函数被调用时执行</div></pre></td></tr></table></figure></p>
+<p>函数字面量可以出现在任何允许表达式出现的地方。函数也可以被定义在其他函数中。一个内部函数除了可以访问自己的参数和变量，同时，他也能自由地访问把它嵌套在其中的父函数的参数与变量。通过函数字面量创建的函数对象包含一个连到外部上下文的链接。这被称为闭包。</p>
+<h4 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h4><p>调用一个函数会暂停当前函数的执行，传递控制权和参数的新函数。除了声明时定义的形式参数，每个函数还接收两个附加的参数：this 和 arguments。 参数this在面向对象中的值取决于调用的模式。arguments？</p>
+<p>调用运算符是跟在任何一个函数值的表达式之后的一对圆括号。圆括号内可包含0个或多个用逗号隔开的表达式。</p>
+<h6 id="this"><a href="#this" class="headerlink" title="this"></a>this</h6><p>this的四种调用模式：方法调用模式、函数调用模式、构造器调用模式和apply调用模式。&lt;这些模式在如何初始化关键参数this上存在差异&gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- 方法调用</div><div class="line">    当一个函数被保存为对象的一个属性时，我们称它为一个方法。</div><div class="line">    当一个方法被调用时，this被绑定到该对象。</div><div class="line">    var myObject = &#123;</div><div class="line">        value: 0,</div><div class="line">        increment: function (inc) &#123;</div><div class="line">            this.value += (typeof(inc) == &apos;number&apos;) ? inc : 1;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    object.increment(2);</div><div class="line">    console.log(myObject.value);</div><div class="line"></div><div class="line">    - 方法可以使用this访问自己所属的对象，所以它能从对象中取值或者对对象进行修改。</div><div class="line">    - this到对象的绑定发生在调用的时候。这个“超级”延迟绑定使得函数可以对this高度复用。</div><div class="line">    - 通过this可取得它们所属对象的上下文的方法称为公共方法</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">- 函数调用</div><div class="line">当一个函数并非一个对象的属性时，那么它就是被当作一个函数来调用的</div><div class="line">以此模式调用函数时，this被绑定到全局对象。</div><div class="line">解决方案：如果该方法定义一个变量并给它赋值为this, 那么内部函数就可以通过那个变量访问到this.</div><div class="line">通常把变量名命名为that.</div><div class="line">myObject.double = function () &#123;</div><div class="line">    var that = this; //this是指myObject对象</div><div class="line">    var helper = function () &#123;</div><div class="line">        //helper里的this被绑定到全局对象</div><div class="line">        that.value = add(that.value, that.value);</div><div class="line">    &#125;</div><div class="line">    helper();</div><div class="line">&#125;</div><div class="line"></div><div class="line">function add(a, b) &#123;</div><div class="line">    return a+b;</div><div class="line">&#125;</div><div class="line">myObject.double();</div><div class="line">document.write(myObject.value);</div><div class="line">        -匿名函数自调用</div><div class="line">        (function(a1,a2)&#123;</div><div class="line">            alert(&quot;Here!&quot;+(a1+a2));</div><div class="line">        &#125;)(1,2);</div><div class="line"></div><div class="line">        (function(a1,a2)&#123;</div><div class="line">            alert(&quot;Here!&quot; +(a1+a2));</div><div class="line">        &#125;(1,2));</div><div class="line"></div><div class="line">        void function(a1,a2)&#123;</div><div class="line">            alert(&quot;Here!&quot; +(a1+a2));</div><div class="line">        &#125;(1,2);</div><div class="line"></div><div class="line">        var f = function(a1,a2)&#123;</div><div class="line">            alert(&quot;Here!&quot; +(a1+a2));</div><div class="line">        &#125;(1,2);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">- 构造器调用</div><div class="line">js是一门基于原型继承的语言。对象可以直接从其他对象继承属性。js是无类型的。js提供了一套和基于类的语言类似的对象构建语法。</div><div class="line">如果在一个函数前面带上new来调用，那么将会创建一个连接到该函数的prototype成员的新对象，同时，this会被绑定到新的对象上。</div><div class="line">// 构造器调用模式</div><div class="line">    var Quo = function (string) &#123;</div><div class="line">        this.status = string;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    Quo.prototype.get_status = function()&#123;</div><div class="line">        return this.status</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    var myQuo = new Quo(&quot;confused&quot;);</div><div class="line">    document.write(myQuo.get_status()); //打印输出confused</div><div class="line"></div><div class="line">一个函数，如果创建的目的是希望结合new前缀来调用，那么它就被称为构造器函数。</div><div class="line">按照约定，他们保存在以大写格式命名的变量里。</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">- apply调用</div><div class="line">apply方法可以构建一个参数数组传递给调用函数。apply方法接收两个参数，第一个是要绑定给this的值，第2个是一个参数数组</div><div class="line">// apply调用模式</div><div class="line">    var array = [3, 4];</div><div class="line">    var sum = add.apply(null, array);</div><div class="line"></div><div class="line">    var statusObject = &#123;</div><div class="line">        status: &quot;A-OK&quot;</div><div class="line">    &#125;;</div><div class="line">    // statusObject并没有继承自Quo.prototype,但是我们可以在statusObject</div><div class="line">    // 上调用get_status方法</div><div class="line">    var status = Quo.prototype.get_status.apply(statusObject);</div><div class="line">    console.log(status); //输出为&apos;A-OK&apos;</div></pre></td></tr></table></figure>
+<h6 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h6><pre><code>当函数被调用时，得到arguments数组。
+函数可以通过此参数访问所有它被调用时传递给它的参数列表。
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var sum = function() &#123;</div><div class="line">    var i, sum = 0;</div><div class="line">    for(i = 0; i &lt; arguments.length; i++) &#123;</div><div class="line">        sum += arguments[i];</div><div class="line">    &#125;</div><div class="line">    return sum;</div><div class="line">&#125;</div><div class="line">document.write(sum(4, 8, 9, 6)); // 27</div><div class="line"></div><div class="line">因为语言的设计错误，arguments并是不一个真正的数组。它只是一个“类似数组”的对象。arguments拥有一个length属性，但它没有任何数组的方法。</div></pre></td></tr></table></figure>
+<h4 id="返回"><a href="#返回" class="headerlink" title="返回"></a>返回</h4><pre><code>return语句可用来使函数提前返回。当return被执行时，函数立即返回而不再执行余下语句。
+一个函数总是会返回一个值。如果没有指定返回值，则返回undefined
+如果函数在调用时前面加上了new前缀，且返回值不是一个对象，则返回this(该新对象)
+</code></pre><h4 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">var add = function(a, b) &#123;</div><div class="line">    if(typeof a != &apos;number&apos; || typeof b != &apos;number&apos;)&#123;</div><div class="line">        throw &#123;</div><div class="line">            name: &quot;TypeError&quot;,</div><div class="line">            message: &quot;add needs number&quot;,</div><div class="line">            mayDay: &quot;juejiang&quot;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">    return a + b;</div><div class="line">&#125;</div><div class="line">// throw语句中断函数的执行。它抛出一个exception对象，</div><div class="line">// 该对象包含一个用来识别异常类型的name属性和一个描述性的message属性。也可以添加其他属性</div><div class="line">// 该exception对象将被传递到一个try语句的catch从句</div><div class="line"></div><div class="line">var try_it = function () &#123;</div><div class="line">    try &#123;</div><div class="line">        add(&quot;seven&quot;);</div><div class="line">    &#125; catch (e) &#123;</div><div class="line">        // document.write(e.name + &quot;:&quot; + e.message);</div><div class="line">        document.write(e.mayDay);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">try_it();</div><div class="line">// 如果在try代码块中抛出了一个异常，控制权就会跳转到它的catch从句</div></pre></td></tr></table></figure>
+<h4 id="扩充类型的功能"><a href="#扩充类型的功能" class="headerlink" title="扩充类型的功能"></a>扩充类型的功能</h4><p>JavaScript允许给语言的基本类型扩充功能。通过给Object.prototype添加方法，可以让该方法对所有对象都可用。这样的方式对函数、数组、字符串、数字、正则和布尔值同样适用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">例如：js没有专门的整数类型，通过给Number.prototype增加一个integer方法来改善</div><div class="line">    // Function.prototype增加方法来使得该方法对所有函数可用</div><div class="line">    Function.prototype.method = function(name, func) &#123;</div><div class="line">        this.prototype[name] = func;</div><div class="line">        return this;</div><div class="line">    &#125;</div><div class="line">    // 通过给Function.prototype增加一个method方法，下次增加就不必输入prototype这几个字符。</div><div class="line"></div><div class="line">    Number.method(&apos;integer&apos;, function() &#123;</div><div class="line">        return Math[this &lt; 0 ? &apos;ceil&apos; : &apos;floor&apos;](this);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    //直接在Function上添加number方法</div><div class="line">    Function.prototype.number = function(num) &#123;</div><div class="line">    return Math[num &lt; 0 ? &apos;ceil&apos; : &apos;floor&apos;](num);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // var newFunc = new Function;</div><div class="line">    document.write(Function.number(-10/3)); //-3</div><div class="line">因为js原型继承的动态本质，新的方法立刻就被赋予到所有的对象实例上，哪怕对象实例实在方法被增加之前就创建好了。</div></pre></td></tr></table></figure>
+<h4 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h4><h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">作用域控制变量与参数的可见性及生命周期。</div><div class="line">// 作用域</div><div class="line">var foo = function () &#123;</div><div class="line">    var a = 3, b = 5;</div><div class="line">    var bar = function () &#123;</div><div class="line">        var b = 7, c = 11;</div><div class="line">        // 此时a=3,b=7,c=11</div><div class="line">        a += b+c;</div><div class="line">        // 此时a=3, b=7, c=21</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    // 此时a=3,b=5,c没定义</div><div class="line">    bar();</div><div class="line">    // 此时a=21,b=5</div><div class="line">&#125;;</div><div class="line"></div><div class="line">js有函数作用域。</div><div class="line">定义在函数中的参数和变量在函数外部是不可见的；</div><div class="line">在一个函数中的任何位置定义的变量在该函数中的任何地方都可见</div></pre></td></tr></table></figure>
+<h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><pre><code>该函数可以访问它被创建时所处的上下文环境，称为闭包。
+</code></pre><h4 id="回调"><a href="#回调" class="headerlink" title="回调"></a>回调</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">request = prepare_the_request ();</div><div class="line">send_request_asynchronously(request, functon(respons)&#123;</div><div class="line">    display(response);</div><div class="line">&#125;)</div><div class="line">传递了一个函数作为参数给send_request_asynchronously函数，它将在收到响应时被调用。</div></pre></td></tr></table></figure>
+<h4 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h4><p>模块是一个提供接口缺隐藏状态与实现的函数或对象<br>模块模式的一般形式是：</p>
+<ol>
+<li>一个定义了私有变量和函数的函数，</li>
+<li>利用闭创建可以访问私有变量和函数的特权函数；</li>
+<li>返回特权函数或者把他们保存到一个可访问到的地方</li>
+</ol>
+<h4 id="级联"><a href="#级联" class="headerlink" title="级联"></a>级联</h4><p>在一个级联中，我们可以在单独一条的语句中依次调用同一个对象的很多方法。</p>
+<h4 id="套用"><a href="#套用" class="headerlink" title="套用"></a>套用</h4><p>函数也是值，套用允许我们将函数与传递给它的参数相结合区产生一个新的函数。</p>
+<h4 id="记忆"><a href="#记忆" class="headerlink" title="记忆"></a>记忆</h4><p>函数可以用对象去记住先前操作的结果，从而能避免无谓的运算。这种优化被称为记忆。</p>
+<h3 id="第五章-继承"><a href="#第五章-继承" class="headerlink" title="第五章 继承"></a>第五章 继承</h3><p>在基于类的语言中，对象是类的实例，并且类可以从另一个类继承。</p>
+<h4 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h4><p>当一个函数对象被创建时，Function构造器产生的函数对象会运行类似这样的一些代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">this.prototype = &#123;constructor: this&#125;;</div><div class="line">新函数对象被赋予一个prototype属性，其值是包含一个constuctor属性且属性值为该函数的对象。该prototype对象是存放继承特征的地方。</div><div class="line">// 定义一个构造器并扩充原型</div><div class="line">        var Mammal = function(name) &#123;</div><div class="line">            this.name = name;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        Mammal.prototype.get_name = function() &#123;</div><div class="line">            return this.name;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        Mammal.prototype.says = function() &#123;</div><div class="line">            return this.saying || &apos;&apos;;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        var myMammal = new Mammal(&apos;Herb the&apos;);</div><div class="line">        var name = myMammal.get_name();</div><div class="line"></div><div class="line">        // console.log(myMammal);</div><div class="line">        // console.log(name);</div><div class="line"></div><div class="line">        // 构造Cat伪类来继承Mammal，这是通过定义它的constructor函数</div><div class="line">        // 并替换它的prototype为一个Mammal的实例来实现。</div><div class="line">        var Cat = function (name) &#123;</div><div class="line">            this.name = name;</div><div class="line">            this.saying = &apos;meow&apos;;</div><div class="line">        &#125;;</div></pre></td></tr></table></figure>
+<h4 id="对象说明符"><a href="#对象说明符" class="headerlink" title="对象说明符"></a>对象说明符</h4><p>构造器可能接受一大串的参数，因此要记住参数的顺序可能非常困难。<br>解决方案是在编写构造器时使其接受一个简单的对象说明符可能会更加友好。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var myObject = maker(&#123;</div><div class="line"></div><div class="line">    first: f,</div><div class="line">    last: l,</div><div class="line">    state: s,</div><div class="line">    city: c</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="原型？？？"><a href="#原型？？？" class="headerlink" title="原型？？？"></a>原型？？？</h4><p>一个新对象可以继承一个旧对象的属性。</p>
+<h4 id="函数化？？？"><a href="#函数化？？？" class="headerlink" title="函数化？？？"></a>函数化？？？</h4><p>构造一个将产生对象的函数开始，该函数包括四个步骤：</p>
+<ol>
+<li>它创建一个新对象。</li>
+<li>选择性地定义私有实例变量和方法。（通过var语句定义的普通变量）</li>
+<li>新对象扩充方法</li>
+<li>返回新对象</li>
+</ol>
+<h4 id="部件"><a href="#部件" class="headerlink" title="部件"></a>部件</h4><h3 id="第六章-数组"><a href="#第六章-数组" class="headerlink" title="第六章 数组"></a>第六章 数组</h3><h4 id="数组字面量"><a href="#数组字面量" class="headerlink" title="数组字面量"></a>数组字面量</h4><p>数组字面量继承自Array.prototype, 而numbers_object继承自Object.prototype. 所以numbers继承了大量有用的方法。还有一个length属性，而numbers_object则没有。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">javaScript允许数组包含任意混合类型的值</div><div class="line">var misc = [</div><div class="line">    &apos;string&apos;, 98.6, true, flase, null, undefined, [&apos;nested&apos;, &apos;array&apos;], &#123;object: true&#125;, NaN, Infinity</div><div class="line">];</div></pre></td></tr></table></figure>
+<h4 id="长度"><a href="#长度" class="headerlink" title="长度"></a>长度</h4><p>length属性值是这个数组的最大属性名加上1.它不一定等于数组里的属性个数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var myArray[100000] = true;</div><div class="line">myArray.length  //100001</div></pre></td></tr></table></figure></p>
+<p>可以直接设置length的值。设置更大的length无需给数组分配更多的空间。而把length设小将导致所有下标大于等于新length的属性被删除。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">通过把下标指定为一个数组的当前length,可以附加一个新元素到该数组的尾部</div><div class="line">var numbers = [&quot;zero&quot;, &apos;one&apos;, &apos;two&apos;, &apos;three&apos;, &apos;four&apos;, &apos;five&apos;, &apos;six&apos;];</div><div class="line">numbers.legth = 3;</div><div class="line">numbers[numbers.length] = &apos;shi&apos;;</div><div class="line">// 等效于</div><div class="line">numbers.push(&apos;shi&apos;)</div><div class="line">console.log(numbers);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// 删除数组中第3个元素</div><div class="line">delete numbers[2]</div><div class="line">console.log(numbers[2]); //undefined</div><div class="line">删除该位置上的元素但是不会递减后面每元素的下标</div><div class="line"></div><div class="line"></div><div class="line">// 任何额外的参数会在序号那个点的位置被插入到数组中</div><div class="line">// 这对于大型数组来说可能会效率不高</div><div class="line">第一个参数是数组中的一个序号。第二个参数是要删除的元素个数</div><div class="line">var numbers = [&quot;zero&quot;, &apos;one&apos;, &apos;two&apos;, &apos;three&apos;, &apos;four&apos;, &apos;five&apos;, &apos;six&apos;];</div><div class="line">numbers.splice(2, 2);</div><div class="line">console.log(numbers)  //[&quot;zero&quot;, &apos;one&apos;,  &apos;four&apos;, &apos;five&apos;, &apos;six&apos;];</div></pre></td></tr></table></figure>
+<h4 id="枚举-1"><a href="#枚举-1" class="headerlink" title="枚举"></a>枚举</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">js的数组其实就是对象。所以可以用for in语句来遍历一个数组的所有属性。</div><div class="line">        var myArray = [&quot;100&quot;,&quot;&quot;,&quot;11&quot;];</div><div class="line">        // myArray[100] = true;</div><div class="line">        console.log(myArray.length);</div><div class="line"></div><div class="line">        for(var i = 0; i &lt; myArray.length; i++) &#123;</div><div class="line">            console.log(myArray[i]);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        // for (item in myArray) &#123;</div><div class="line">        //     console.log(myArray[item]);</div><div class="line">        // &#125;</div><div class="line">        //100  11</div></pre></td></tr></table></figure>
+<h4 id="混淆的地方"><a href="#混淆的地方" class="headerlink" title="混淆的地方"></a>混淆的地方</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 数组与对象使用规则：</div><div class="line">// 当属性名是小而连续的整数时，你应该使用数组，否则使用对象</div><div class="line">var testArray = [];</div><div class="line">console.log(typeof(testArray)) //object</div></pre></td></tr></table></figure>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">// js提供来了一组作用数组的方法。这些方法被存储在Array.prototype中的函数</div><div class="line">// 并且Array.prototype是可以被扩充的。</div><div class="line">            Array.prototype.reduce = function(f, value) &#123;</div><div class="line">                var i;</div><div class="line">                for(i = 0; i &lt; this.length; i += 1) &#123;</div><div class="line">                    value = f(this[i], value);</div><div class="line">                &#125;</div><div class="line">                return value;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            var data = [4, 8, 15, 16, 23, 42];</div><div class="line">            var add = function(a, b) &#123;</div><div class="line">                return a + b;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            var mult = function (a, b) &#123;</div><div class="line">                return a * b;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            var sum = data.reduce(add, 0);</div><div class="line">            var product = data.reduce(mult, 1)</div><div class="line">            // console.log(sum);</div><div class="line">            // console.log(product);</div><div class="line"></div><div class="line">// 也可以直接给一个单独的数组添加方法</div><div class="line">                data.total = function() &#123;</div><div class="line">                    return this.reduce(add, 0);</div><div class="line">                &#125;;</div><div class="line">                total = data.total();</div><div class="line">                console.log(total);</div></pre></td></tr></table></figure>
+<h4 id="维度"><a href="#维度" class="headerlink" title="维度"></a>维度</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">    Array.dim = function (dimension, initial) &#123;</div><div class="line">        var a = [], i;</div><div class="line">        for(i = 0; i &lt; dimension; i++) &#123;</div><div class="line">            a[i] = initial;</div><div class="line">        &#125;;</div><div class="line">        return a;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    var myArray = Array.dim(10, 0);</div><div class="line">    // console.log(myArray);</div><div class="line"></div><div class="line">    Array.matrix = function (m, n, initial) &#123;</div><div class="line">        var a, i, j, mat = [];</div><div class="line">        for(i = 0; i &lt; m; i++) &#123;</div><div class="line">            a = [];</div><div class="line">            for(j = 0; j &lt; n; j++) &#123;</div><div class="line">                a[j] = 0;</div><div class="line">            &#125;</div><div class="line">            mat[i] = a;</div><div class="line">        &#125;</div><div class="line">        return mat;</div><div class="line">    &#125;</div><div class="line">// 构造一个用0填充的4X4矩阵</div><div class="line">    var myMatrix = Array.matrix(4, 3, 4);</div><div class="line">    console.log(myMatrix);</div><div class="line"></div><div class="line">// 构造一个对角矩阵的方法</div><div class="line">    Array.identity = function (n) &#123;</div><div class="line">        var i, mat = Array.matrix(n, n, 0);</div><div class="line">        for(i = 0; i &lt; n; i++) &#123;</div><div class="line">            mat[i][i] = 1;</div><div class="line">        &#125;</div><div class="line">        return mat;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    myMatrix = Array.identity(4);</div><div class="line"></div><div class="line">    console.log(myMatrix);</div></pre></td></tr></table></figure>
+<h3 id="第七章-正则表达式"><a href="#第七章-正则表达式" class="headerlink" title="第七章 正则表达式"></a>第七章 正则表达式</h3><h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><p>创建RegExp对象的方法：</p>
+<ol>
+<li>可以使用正则表达式字面量来穿件一个RegExp对象。正则表达式字面量被包围在一对斜杠中。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var my_regexp = /&quot;(?:\\.|[^\\\&quot;])*&quot;/g;</div></pre></td></tr></table></figure>
+<ol>
+<li>使用RegExp构造器。这个构造器接收一个字符串，并把它编译为一个RegExp对象</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">创建一个匹配JavaScript字符串的正则表达式</div><div class="line">var my_regexp = new RegExp(&quot;\&quot;(?:\\.|[^\\\\\\\&quot;])*\&quot;&quot;, &apos;g&apos;);</div></pre></td></tr></table></figure>
+<p>有三个标志能在RegExp中设置。可以直接添加在RegExp字面量的末尾</p>
+<table>
+<thead>
+<tr>
+<th>标志</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G</td>
+<td>全局的(匹配多次；准确含义随方法而变)</td>
+</tr>
+<tr>
+<td>I</td>
+<td>大小写不敏感(忽略字符大小写)</td>
+</tr>
+<tr>
+<td>M</td>
+<td>多行(^和$能匹配行结束符)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h4><p>一个正则表达式选择包含1个或多个正则表达式序列。这些序列被|(竖线)字符分隔。</p>
+<h5 id="正则表达式选择"><a href="#正则表达式选择" class="headerlink" title="正则表达式选择"></a>正则表达式选择</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&quot;into&quot;.match(/in|int/)</div><div class="line">将在into中匹配in.但它不会匹配int.</div><div class="line"></div><div class="line">match() 方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配。</div><div class="line">该方法类似 indexOf() 和 lastIndexOf()，但是它返回指定的值，而不是字符串的位置。</div></pre></td></tr></table></figure>
+<h5 id="正则表达式序列"><a href="#正则表达式序列" class="headerlink" title="正则表达式序列"></a>正则表达式序列</h5><p>一个正则表达式序列包含1个或多个正则表达式因子。每个因子能选择是否跟随一个量词，这个量词决定着这个因子被允许出现的次数。默认为匹配1次。</p>
+<h5 id="正则表达式因子"><a href="#正则表达式因子" class="headerlink" title="正则表达式因子"></a>正则表达式因子</h5><p>一个正则表达式因子可以司一个字符、一个圆括号包围的组、一个字符类，或者是一个转义序列。除了控制字符和特殊字符以外，所有的字符都将被按照字面处理</p>
+<h5 id="正则表达式转义"><a href="#正则表达式转义" class="headerlink" title="正则表达式转义"></a>正则表达式转义</h5><p>反斜杠字符在正则表达式因子中与其在字符串中一样均表示转义。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">\f 换页符  \n换行符 \r回车符 \t制表符</div><div class="line">\w [0-9A-Z_a-z] \W则表示与其相反的</div></pre></td></tr></table></figure>
+<h5 id="正则表达式分组"><a href="#正则表达式分组" class="headerlink" title="正则表达式分组"></a>正则表达式分组</h5><ol>
+<li>捕获型<br> 一个捕获型分组是一个被包围在圆括号中的正则表达式选择。任何匹配这个分组的字符将被捕获。每个捕获分组都被指定来了一个数字。默认从1开始。</li>
+<li>非捕获型<br> 非捕获型分组有一个(?:前缀。非捕获型分组仅做简单的匹配；并不会捕获所匹配文本。</li>
+<li>向前正向匹配<br> 向前正向匹配组有一个(?=前缀。</li>
+<li>向前负向匹配<br> 向前负向匹配分组有一个(?!前缀。</li>
+</ol>
+<h5 id="正则表达式类"><a href="#正则表达式类" class="headerlink" title="正则表达式类"></a>正则表达式类</h5><p>正则表达式类是一种指定一组字符的便利方式。优点：能够指定字符范围；类的求反^</p>
+<h5 id="正则表达式类转义"><a href="#正则表达式类转义" class="headerlink" title="正则表达式类转义"></a>正则表达式类转义</h5><p>在字符类中需要被转义的特殊字符： - / [ \ ] ^</p>
+<h5 id="正则表达式量词"><a href="#正则表达式量词" class="headerlink" title="正则表达式量词"></a>正则表达式量词</h5><p>正则表达式因子可以用一个正则表达式量词后缀来决定这个因子应该被匹配的次数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/WWW/ /w&#123;3&#125;/  &#123;3, 6&#125;将匹配3、4、5或6次。 &#123;3, &#125;将匹配3次或者更多次</div><div class="line"></div><div class="line">？等同于&#123;0, 1&#125;  *等同于&#123;0, &#125;  +则等同于&#123;1, &#125;</div></pre></td></tr></table></figure>
+<h3 id="第八章-方法"><a href="#第八章-方法" class="headerlink" title="第八章 方法"></a>第八章 方法</h3><h4 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h4><ol>
+<li>array.concat(item)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var a = [&apos;a&apos;, &apos;a&apos;, &apos;a&apos;];</div><div class="line">var b = [&apos;b&apos;, &apos;b&apos;, &apos;b&apos;];</div><div class="line">var d = [&apos;b&apos;, &#123;name: &quot;yuan&quot;&#125;, &apos;b&apos;];</div><div class="line">var c1 = a.concat(d, true);</div><div class="line">var c2 = a.concat(b, true);</div><div class="line">document.write(c1);</div><div class="line">// a,a,a,b,[object Object],b,true</div><div class="line">document.write(c2);</div><div class="line">// a,a,a,b,b,b,true</div></pre></td></tr></table></figure>
+<ol>
+<li>array.join(separator)<br> 把array构造成一个字符串，并用一个separator为分隔符把它们连接在一起。默认的separator是’,’</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];</div><div class="line">a.push(&apos;d&apos;);</div><div class="line">var c = a.join(&apos;/&apos;);</div><div class="line">document.write(c);</div><div class="line">// a/b/c/d</div></pre></td></tr></table></figure>
+<ol>
+<li><p>array.pop()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// pop方法移除array中的最后一个元素并返回该元素。</div><div class="line">// 如果该array是空的，返回unfined</div><div class="line">    var a = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];</div><div class="line">    var c = a.pop();</div><div class="line">    document.write(c + &apos;&lt;br&gt;&apos;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>array.push(item)</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//将一个或多个参数item附加到一个数组的尾部，会修改数组array；</div><div class="line">// 如果参数item是一个数组，它会将参数数组作为单个元素添加到数组中。</div><div class="line">// 返回值为这个数组的新长度</div><div class="line">        var a = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];</div><div class="line">        var b = [&apos;x&apos;, &apos;y&apos;, &apos;z&apos;];</div><div class="line">        var c = a.push(b, true);</div><div class="line">        document.write(&apos;push:&apos; + c + &apos;&lt;br&gt;&apos;);</div><div class="line">        console.log(a);</div><div class="line">        // 5   [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, [&apos;x&apos;, &apos;y&apos;, &apos;z&apos;], true]</div></pre></td></tr></table></figure>
+<ol>
+<li><p>array.reverse()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// reverse方法反转array中的元素的顺序，返回当前的array</div><div class="line">var a = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];</div><div class="line">var b = a.reverse();</div><div class="line">console.log(a);</div><div class="line">// a和b都是[&apos;c&apos;, &apos;b&apos;, &apos;a&apos;];</div></pre></td></tr></table></figure>
+</li>
+<li><p>array.shift()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 该方法移除数组array中的第一个元素并返回该元素。</div><div class="line">// 如果array是空的，它会返回undefined</div><div class="line">    var a = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];</div><div class="line">    var c = a.shift()</div><div class="line">    console.log(a);</div><div class="line">    console.log(c);</div><div class="line">    // a是[&apos;b&apos;, &apos;c&apos;] c是&apos;a&apos;</div></pre></td></tr></table></figure>
+</li>
+<li><p>array.slice(start, end)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 对array中一段做浅复制</div><div class="line">// 第一个被复制的元素是array[start]</div><div class="line">// 一直复制到array[end]不包括array[end],end可选，默认为array.length</div><div class="line">            var a = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];</div><div class="line">            var b = a.slice(0, 1);</div><div class="line">            var c = a.slice(1);</div><div class="line">            var d = a.slice(1, 2);</div><div class="line">            console.log(b); //&apos;a&apos;</div><div class="line">            console.log(c); // &apos;b&apos;, &apos;c&apos;</div><div class="line">            console.log(d); // &apos;b&apos;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>8.array.sort(comparefn)<br>// 默认是字符串排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 把item插入到array的开始部分，返回array的新的长度值。</div><div class="line">        var a = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];</div><div class="line">        var r = a.unshift(&apos;r&apos;, &apos;@&apos;);</div><div class="line">        console.log(a);</div><div class="line">        console.log(r)</div></pre></td></tr></table></figure>
+<h5 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h5><p>function.apply(thisArg, argArray)</p>
+<h5 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h5><ol>
+<li><p>number.toExponential(fractionDigits)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 把number转换成一个之书形式的字符串。</div><div class="line">// 可选参数fractionDigits控制其小数点后的数字维数(0~20).</div><div class="line">    document.write(Math.PI.toExponential(0)); //3e+0</div><div class="line">    document.write(Math.PI.toExponential(1)); //3.1e+0</div></pre></td></tr></table></figure>
+</li>
+<li><p>number.toFix(fractionDigits)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// 把number转换成一个十进制形式的**字符串**。</div><div class="line">// 可选参数fractionDigits控制其小数点后的数字维数(0~20)</div><div class="line">    document.write(Math.PI.toFixed(1)); //3.1</div></pre></td></tr></table></figure>
+</li>
+<li><p>number.toPrecision(precision)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// 把这个number转换成一个十进制形式的字符串。</div><div class="line">// 可选参数precision控制有效数字的位数(0~21)。</div><div class="line">    document.write(Math.PI.toPrecision(3)); //3.14</div></pre></td></tr></table></figure>
+</li>
+<li><p>number.toString(radix)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 将number转换成一个字符串。</div><div class="line">// 可选参数radix控制基数(2~36)，默认是以10为基数的。</div><div class="line">        document.write(Math.PI.toString(2));//11.00100100001111110110101010001000100001011</div><div class="line">        document.write(Math.PI.toString()); //3.141592653589793</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h5 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h5><p>object.hasOwnProperty(name)<br>    如果这个object包含了一个名为name的属性，那么hasOwnProperty方法返回true. 原型链中的同名属性是不会被检查的。返回为false</p>
+<h5 id="RegExp"><a href="#RegExp" class="headerlink" title="RegExp"></a>RegExp</h5><ol>
+<li><p>regexp.exec(string)<br>如果它成功匹配regexp和字符串string,它会返回一个数组。数组中下标为0的元素将包含正则表达式regexp匹配的子字符串。下标为i的元素是分组i捕获的文本。如果匹配失败，那么它会返回null</p>
+</li>
+<li><p>regexp.test(string)<br>如果该regexp匹配string，它返回true;否则返回false</p>
+</li>
+</ol>
+<h5 id="String"><a href="#String" class="headerlink" title="String"></a>String</h5><ol>
+<li>string.chartAt(pos)<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 返回在string中pos位置处的字符</div><div class="line">    var name = &quot;Zhiyuan&quot;;</div><div class="line">    var initial = name.charAt(0);</div><div class="line">    document.write(initial + &apos;&lt;br&gt;&apos;);//Z</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>2.string.charCodeAt(pos)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 同charAt一样，但是返回值是以整数形式表示在string</div><div class="line">// 中的pos位置处的字符的字符码位</div><div class="line">    var initial = name.charCodeAt(0);</div><div class="line">    document.write(initial + &apos;&lt;br&gt;&apos;);//90</div></pre></td></tr></table></figure></p>
+<p>3.string.concat(string)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// 将其他的字符串连接在一起来构造一个新的字符串。</div><div class="line">// 可以用+来代替</div><div class="line">    var s = &apos;C&apos;.concat(&apos;a&apos;, &apos;t&apos;);</div></pre></td></tr></table></figure></p>
+<p>4.string.indexOf(searchString, position)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 在string内查找另一个字符串searchString.</div><div class="line">// 找到返回第一个匹配字符的位置，否则返回-1</div><div class="line">// 可选参数position可设置从string的某个指定的位置开始查找。</div><div class="line">    var text = &apos;mississing&apos;;</div><div class="line">    var p = text.indexOf(&apos;ss&apos;); //2</div><div class="line">    p = text.indexOf(&apos;ss&apos;, 3); //5</div><div class="line">    p = text.indexOf(&apos;ss&apos;, 6);// -1</div></pre></td></tr></table></figure></p>
+<p>5.string.lastIndexOf(searchString, position)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">// 从末尾开始查找</div></pre></td></tr></table></figure></p>
+<p>6.string.localeCompare(that)</p>
+<pre><code>比较两个字符串。string&lt;that 返回负数 string=that返回0
+</code></pre><p>7.string.match(regexp)</p>
+<pre><code>匹配一个字符串和一个正则表达式。
+</code></pre><p>8.string.replace(searchValue, replaceValue)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">对string进行查找和替换的操作，并返回一个新的字符串</div><div class="line">    // searchValue可以是一个字符串或一个正则表达式对象。</div><div class="line">    // 如果是一个字符串，那么只会在string第一次出现的地方被替换</div><div class="line">    // 如果searchValues是一个正则表达式并且带有g标志，它将替换所有匹配的字符串</div><div class="line">    var result = &quot;mothe_in_law&quot;.replace(&apos;_&apos;, &apos;-&apos;);</div><div class="line">    document.write(result);</div></pre></td></tr></table></figure>
+<p>9.string.search(regexp)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 接受正则表达式对象作为参数</div><div class="line">// 如果匹配成功返回第一个匹配的首字符位置，如果没有匹配返回-1</div><div class="line">        var text = &apos;and in it he says &quot; mu&apos;;</div><div class="line">        var pos = text.search(/[&quot;&apos;]/);s</div><div class="line">        document.write(pos + &apos;&lt;br&gt;&apos;); //18</div></pre></td></tr></table></figure>
+<p>10.string.slice(start, end)<br>    复制字符串</p>
+<p>11.string.split(separator, limit)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 把string分隔成片段来创建一个字符串数组</div><div class="line">// limit限制被分隔的片段数量；</div><div class="line">// separator参数是一个字符串或正则表达式</div><div class="line">        var ip = &apos;192.168.2.85&apos;;</div><div class="line">        var a = ip.split(&apos;.&apos;);</div><div class="line">        console.log(a);</div><div class="line">    //192,168,2,85</div></pre></td></tr></table></figure>
+<p>12.string.substring(start, end)<br>    一般用slice替代它</p>
+<ol>
+<li><p>string.toLocaleLowerCase()</p>
+<p>使用本地化的规则把string中的所有字母转换成小写格式</p>
+</li>
+<li><p>string.toLocaleUpperCase()</p>
+<p>使用本地化规则把string中的所有字母转换成大写格式</p>
+</li>
+<li><p>string.toLowerCase()|| string.toUpperCase()</p>
+<p>把string中的所有字母都被转化成小写||大写格式</p>
+</li>
+<li><p>String.fromCharCode(char)</p>
+<p>从一串数字中返回一个字符串</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var a = String.fromCharCode(67, 97, 116);</div><div class="line">document.write(a); //Cat</div></pre></td></tr></table></figure>
+<h3 id="第九章-代码风格"><a href="#第九章-代码风格" class="headerlink" title="第九章 代码风格"></a>第九章 代码风格</h3>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag"># JS</a>
+          
+            <a href="/tags/notes/" rel="tag"># notes</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/13/bookNotes/" rel="next" title="bookNotes">
+                <i class="fa fa-chevron-left"></i> bookNotes
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/qazyuan.png"
+               alt="Yuan" />
+          <p class="site-author-name" itemprop="name">Yuan</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一章-精华"><span class="nav-number">1.</span> <span class="nav-text">第一章 精华</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二章-语法"><span class="nav-number">2.</span> <span class="nav-text">第二章 语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#空白"><span class="nav-number">2.0.1.</span> <span class="nav-text">空白</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#标识符"><span class="nav-number">2.0.2.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数字"><span class="nav-number">2.0.3.</span> <span class="nav-text">数字</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串"><span class="nav-number">2.0.4.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#语句"><span class="nav-number">2.0.5.</span> <span class="nav-text">语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#表达式"><span class="nav-number">2.0.6.</span> <span class="nav-text">表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字面量"><span class="nav-number">2.0.7.</span> <span class="nav-text">字面量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#函数"><span class="nav-number">2.0.8.</span> <span class="nav-text">函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三章-对象"><span class="nav-number">3.</span> <span class="nav-text">第三章 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#对象字面量"><span class="nav-number">3.0.1.</span> <span class="nav-text">对象字面量</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检索"><span class="nav-number">3.1.</span> <span class="nav-text">检索</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新"><span class="nav-number">3.2.</span> <span class="nav-text">更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引用"><span class="nav-number">3.3.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型"><span class="nav-number">3.4.</span> <span class="nav-text">原型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反射"><span class="nav-number">3.5.</span> <span class="nav-text">反射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#枚举"><span class="nav-number">3.6.</span> <span class="nav-text">枚举</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除"><span class="nav-number">3.7.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#减少全局变量污染"><span class="nav-number">3.8.</span> <span class="nav-text">减少全局变量污染</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四章-函数"><span class="nav-number">4.</span> <span class="nav-text">第四章 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数对象"><span class="nav-number">4.1.</span> <span class="nav-text">函数对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数字面量"><span class="nav-number">4.2.</span> <span class="nav-text">函数字面量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调用"><span class="nav-number">4.3.</span> <span class="nav-text">调用</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#this"><span class="nav-number">4.3.0.1.</span> <span class="nav-text">this</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#参数"><span class="nav-number">4.3.0.2.</span> <span class="nav-text">参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回"><span class="nav-number">4.4.</span> <span class="nav-text">返回</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异常"><span class="nav-number">4.5.</span> <span class="nav-text">异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扩充类型的功能"><span class="nav-number">4.6.</span> <span class="nav-text">扩充类型的功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#递归"><span class="nav-number">4.7.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#作用域"><span class="nav-number">4.8.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#闭包"><span class="nav-number">4.9.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回调"><span class="nav-number">4.10.</span> <span class="nav-text">回调</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块"><span class="nav-number">4.11.</span> <span class="nav-text">模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#级联"><span class="nav-number">4.12.</span> <span class="nav-text">级联</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#套用"><span class="nav-number">4.13.</span> <span class="nav-text">套用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#记忆"><span class="nav-number">4.14.</span> <span class="nav-text">记忆</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五章-继承"><span class="nav-number">5.</span> <span class="nav-text">第五章 继承</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#伪类"><span class="nav-number">5.1.</span> <span class="nav-text">伪类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象说明符"><span class="nav-number">5.2.</span> <span class="nav-text">对象说明符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型？？？"><span class="nav-number">5.3.</span> <span class="nav-text">原型？？？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数化？？？"><span class="nav-number">5.4.</span> <span class="nav-text">函数化？？？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#部件"><span class="nav-number">5.5.</span> <span class="nav-text">部件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六章-数组"><span class="nav-number">6.</span> <span class="nav-text">第六章 数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数组字面量"><span class="nav-number">6.1.</span> <span class="nav-text">数组字面量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#长度"><span class="nav-number">6.2.</span> <span class="nav-text">长度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#枚举-1"><span class="nav-number">6.3.</span> <span class="nav-text">枚举</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#混淆的地方"><span class="nav-number">6.4.</span> <span class="nav-text">混淆的地方</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法"><span class="nav-number">6.5.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#维度"><span class="nav-number">6.6.</span> <span class="nav-text">维度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第七章-正则表达式"><span class="nav-number">7.</span> <span class="nav-text">第七章 正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#结构"><span class="nav-number">7.1.</span> <span class="nav-text">结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元素"><span class="nav-number">7.2.</span> <span class="nav-text">元素</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#正则表达式选择"><span class="nav-number">7.2.1.</span> <span class="nav-text">正则表达式选择</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#正则表达式序列"><span class="nav-number">7.2.2.</span> <span class="nav-text">正则表达式序列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#正则表达式因子"><span class="nav-number">7.2.3.</span> <span class="nav-text">正则表达式因子</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#正则表达式转义"><span class="nav-number">7.2.4.</span> <span class="nav-text">正则表达式转义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#正则表达式分组"><span class="nav-number">7.2.5.</span> <span class="nav-text">正则表达式分组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#正则表达式类"><span class="nav-number">7.2.6.</span> <span class="nav-text">正则表达式类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#正则表达式类转义"><span class="nav-number">7.2.7.</span> <span class="nav-text">正则表达式类转义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#正则表达式量词"><span class="nav-number">7.2.8.</span> <span class="nav-text">正则表达式量词</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第八章-方法"><span class="nav-number">8.</span> <span class="nav-text">第八章 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Array"><span class="nav-number">8.1.</span> <span class="nav-text">Array</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Function"><span class="nav-number">8.1.1.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Number"><span class="nav-number">8.1.2.</span> <span class="nav-text">Number</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Object"><span class="nav-number">8.1.3.</span> <span class="nav-text">Object</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#RegExp"><span class="nav-number">8.1.4.</span> <span class="nav-text">RegExp</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String"><span class="nav-number">8.1.5.</span> <span class="nav-text">String</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第九章-代码风格"><span class="nav-number">9.</span> <span class="nav-text">第九章 代码风格</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuan</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
