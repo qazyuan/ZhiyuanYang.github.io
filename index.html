@@ -267,6 +267,1907 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/13/JavaScript高级程序设计笔记-部分/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/qazyuan.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhiyuan Yang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/10/13/JavaScript高级程序设计笔记-部分/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-13T18:10:37+08:00">
+                2017-10-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <!DOCTYPE html><html><head><meta charset="utf-8"><meta name="date" content="2017-07-01 21:17:30">
+<meta name="categories" content="[JS]">
+<meta name="tags" content="[JS, notes]"><style>body {
+  max-width: 980px;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 45px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headeranchor-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
+}
+
+.markdown-body .headeranchor-link:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .headeranchor,
+.markdown-body h2 .headeranchor,
+.markdown-body h3 .headeranchor,
+.markdown-body h4 .headeranchor,
+.markdown-body h5 .headeranchor,
+.markdown-body h6 .headeranchor {
+  display: none;
+  color: #000;
+  vertical-align: middle;
+}
+
+.markdown-body h1:hover .headeranchor-link,
+.markdown-body h2:hover .headeranchor-link,
+.markdown-body h3:hover .headeranchor-link,
+.markdown-body h4:hover .headeranchor-link,
+.markdown-body h5:hover .headeranchor-link,
+.markdown-body h6:hover .headeranchor-link {
+  height: 1em;
+  padding-left: 8px;
+  margin-left: -30px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .headeranchor-link .headeranchor,
+.markdown-body h2:hover .headeranchor-link .headeranchor,
+.markdown-body h3:hover .headeranchor-link .headeranchor,
+.markdown-body h4:hover .headeranchor-link .headeranchor,
+.markdown-body h5:hover .headeranchor-link .headeranchor,
+.markdown-body h6:hover .headeranchor-link .headeranchor {
+  display: inline-block;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* Multimarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px octicons-anchor;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\f05c';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><title>JavaScript高级程序设计笔记(部分)</title></head><body><article class="markdown-body"><h4 id="61"><a name="user-content-61" href="#61" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>6.1 理解对象</h4>
+<ul>
+<li>
+<p>属性类型</p>
+<p>属性类型分为访问器属性和数据属性</p>
+<p><strong>访问器属性:</strong></p>
+<p><strong>数据属性:</strong> <br>
+- 定义多个属性</p>
+<p>defineProperties() 接收两个对象参数：一个是要添加和修改其属性的对象；另一个是第一个对象中要添加和修改的属性<br>
+- 读取属性的特性</p>
+</li>
+</ul>
+<h4 id="62"><a name="user-content-62" href="#62" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>6.2 创建对象</h4>
+<ul>
+<li><strong>工厂模式(定义函数，引用函数)</strong></li>
+<li><strong>构造函数模式(构造函数)</strong></li>
+<li>
+<p><strong>原型模式</strong></p>
+<pre><code>function Person() {
+}
+
+Person.prototype.name = &quot;yang&quot;;
+Person.prototype.age = 90;
+Person.prototype.job = &quot;software&quot;;
+Person.prototype.sayName = function () {
+    console.log(this.name);
+}
+var person1 = new Person();
+</code></pre>
+
+<ul>
+<li>
+<p><strong>理解原型对象</strong></p>
+<p>创建一个函数的时候回根据一组特定的规则为该函数传建一个prototype的属性，这个属性指向函数的原型对象。</p>
+<p>在默认情况下，所有原型对象都会自动获得一个constructor属性，这个属性的值是一个指向prototype属性所在函数的指针<br>
+    - <strong>原型对象与in操作符</strong></p>
+<p><strong>in操作符(两种使用方式)：</strong> 一是for (var in )   二是单独使用判断对象是否能够访问给定的属性</p>
+<p><code>function Person() {
+}
+Person.prototype.name = "yang";
+Person.prototype.age = 90;
+Person.prototype.job = "software";
+Person.prototype.sayName = function () {
+    console.log(this.name);
+}
+var person1 = new Person();
+person1.age = 78;
+for (var item in person1) {
+    console.log(item);
+}//name, age, job, sayName
+console.log("name" in person1); //true
+console.log(person1.hasOwnProperty('name'));//false</code></p>
+</li>
+<li>
+<p><strong>更简单的原型语法</strong><br>
+        <pre><code>function Person1() {
+}
+Person1.prototype = {
+    constructor: Person1,  //需要重新给constructor赋值
+    name: &quot;yang&quot;,
+    age: 90,
+    job: &quot;software&quot;,
+    sayName: function () {
+        console.log(this.name)
+    }
+}
+
+var friend = new Person1();
+console.log(friend.constructor == Person1);//true
+</code></pre></p>
+</li>
+<li>
+<p><strong>原型的动态性</strong></p>
+<p>我们对原型对象所做的修改能够立即在实例上反映出来</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Person3 () &#123;</div><div class="line">&#125;</div><div class="line">var friend11 = new Person3();</div><div class="line">Person3.prototype = &#123;</div><div class="line">    name: &quot;yy&quot;,</div><div class="line">    constructor: Person3</div><div class="line">&#125; </div><div class="line">//以字面量的方式重写原型对象会切断现有原型与任何之前已经存在的对象实例之间的联系</div><div class="line">console.log(friend11.name); //undefined</div></pre></td></tr></table></figure>
+
+</code></pre>
+</li>
+<li>
+<p><strong>原生对象的原型</strong></p>
+<p>通过原生对象的原型，不仅可以取得所有默认的方法的应用，也可以定义新的方法<br>
+    - <strong>原型对象的问题</strong></p>
+<p>原型中所有属性是被很多实例共享的，这种共享对于函数非常合适，但对于包含引用类型的值得属性来说就不方便了。</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Person() &#123;&#125;;</div><div class="line">Person.prototype = &#123;</div><div class="line">    constructor: Person,</div><div class="line">    name: [&quot;11&quot;, &quot;222&quot;]</div><div class="line">&#125;</div><div class="line">var person1 = new Person();</div><div class="line">var person2 = new Person();</div><div class="line">person1.name.push(&quot;333&quot;);</div><div class="line">console.log(person2.name); //&quot;11&quot;, &quot;222&quot;, &quot;333&quot;</div></pre></td></tr></table></figure>
+
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>组合使用构造函数模式和原型模式</strong></p>
+<p>创建自定义类型最常见的方式，构造函数模型用于定义实例属性，而原型模式用于定义方法和共享的属性。</p>
+<pre><code>function Person22(name, age, job) {
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.friends = [&quot;ann&quot;, &quot;may&quot;];
+};
+
+Person22.prototype = {
+    constructor: Person22,
+    sayName: function() {
+        console.log(this.name);
+        console.log(this);//指向调用它的实例对象
+    }
+};
+
+var people1 = new Person22(&quot;lily&quot;, &quot;34&quot;, &quot;doctor&quot;);
+var people2 = new Person22(&quot;jue&quot;, &quot;45&quot;, &quot;master&quot;);
+people1.friends.push(&quot;Van&quot;);
+people1.sayName(); // lily
+console.log(people1.friends === people2.friends); //false
+console.log(people1.sayName === people2.sayName); //true
+</code></pre>
+
+</li>
+<li>
+<p><strong>动态原型模式</strong></p>
+<p>可以通过检查某个应该存在的方法是否有效来决定是否需要初始化原型。</p>
+<pre><code>function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    if(typeof this.sayName != 'function') { //根据判断来动态构建原型
+        Person.prototype.sayName = function () {
+            console.log(this.name);
+        }
+    }
+}
+
+var friend = new Person(&quot;yyy&quot;, &quot;89&quot;);
+friend.sayName(); //yyy
+</code></pre>
+
+</li>
+<li>
+<p><strong>寄生构造函数模式</strong></p>
+<p>构造函数在不返回值的情况下,默认会返回新对象实例。而通过在构造函数的末尾添加一个return语句，可以重写调用构造函数时返回的值.<br>
+<pre><code>function Person(name, age) {
+    var o = new Object();
+    o.name = name;
+    o.age = age;
+    o.sayName = function () {
+        console.log(this.name);
+    }
+    return o;
+}
+
+var people = new Person(&quot;yyyy&quot;, '89');
+people.sayName(); //yyyy
+</code></pre><br>
+例：创建一个具有额外方法的特殊数组，由于不能修改Array构造函数，因此可以使用这个模式</p>
+<pre><code>function specialArray() {
+    var values = new Array();
+    values.push.apply(values, arguments);
+    values.toFormatString = function() {
+        return this.join('|');
+    }
+    return values;
+}
+
+var values = new specialArray(&quot;red&quot;, &quot;blue&quot;);
+console.log(values.toFormatString());
+</code></pre>
+
+</li>
+<li>
+<p><strong>稳妥的构造函数模式</strong></p>
+<p>稳妥对象是指没有公共属性，而且其他方法也不引用this的对象。</p>
+<pre><code>function Person(name, age) {
+    var o = new Object();
+    o.name = name;
+    o.age = age;
+    o.sayName = function () {
+        console.log(name);
+    }
+    return o;
+}
+
+var people = Person(&quot;yyyy&quot;, '89');
+people.sayName(); //yyyy
+</code></pre>
+
+<h4 id="63"><a name="user-content-63" href="#63" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>6.3 继承</h4>
+<p>许多OO语言都只是两种继承方式：接口继承和实现继承。接口继承只继承方法签名，而实现继承则继承实际的方法。ECMAScript只支持实现继承，而且其实现继承主要是依靠原型链来实现的。<br>
+- <strong>原型链</strong></p>
+<p>原型链作为实现继承的主要方法，其基本思想是利用原型让一个引用类型继承另一个引用类型的属性和方法。</p>
+<p><pre><code>实现原型链的一种基本模式：
+
+function SuperType () {
+    this.property = true;
+}
+
+SuperType.prototype.getSuperValue = function () {
+    return this.property;
+};
+
+function SubType () {
+    this.subproperty = false;
+}
+
+SubType.prototype = new SuperType();
+SubType.prototype.getSubValue = function () {
+    return this.subproperty;
+}
+
+var instance = new SubType();
+console.log(instance.getSuperValue());
+</code></pre><br>
+- 默认的原型</p>
+<pre><code>所有的引用类型默认都继承了Object,这个继承也是通过原型链实现的，指向Object.prototype
+</code></pre>
+<ul>
+<li>
+<p>原型和实例的关系</p>
+<p>第一种方式是使用instanceof操作符</p>
+<p>第二种方式是使用isPrototypeOf()方法，只要原型链中出现过的原型，都可以说是该原型链所派生的实例的原型。</p>
+</li>
+<li>
+<p>谨慎地定义方法</p>
+<p>给原型添加方法的代码一定要放在替换原型的语句之后。</p>
+<p>使用字面量添加新方法，会导致调用构造函数的方法无效</p>
+<p><pre><code>SubType.prototype = new SuperType();
+//使用字面量添加新方法，会导致上面一行代码无效
+SubType.prototype.prototype = {
+    getSubValue: function() {
+        return this.subproperty;
+    },
+
+    someOtherMethod: function() {
+        return false;
+    }
+}
+</code></pre><br>
+    - 原型链的问题</p>
+<p>包含引用类型的原型属性会被所有实例共享。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><em>*借用构造函数实现继承</em></strong>*</p>
+<p>基本思想：在子类型构造函数的内部调用超类型构造函数<br>
+    <pre><code>function SuperType() {
+    this.colors = ['red', 'blue'];
+}
+
+function SubType() {
+    SuperType.call(this);
+}
+
+var instance1 = new SubType();
+instance1.colors.push('black');
+console.log(instance1.colors); //red,blue,black
+
+var isntance2 = new SubType();
+console.log(isntance2.colors); //red,blue
+</code></pre><br>
+- 传递参数<br>
+<pre><code>function SuperType(name){
+    this.name = name;
+}
+
+function SubType() {
+    SuperType.call(this, &quot;Amy&quot;);
+    this.age = 111;
+}
+
+var instance = new SubType();
+console.log(instance.name + &quot;####&quot; + instance.age); //Amy####111
+</code></pre></p>
+<ul>
+<li>借用构造函数的问题</li>
+</ul>
+<p>方法都在构造函数中定义，不能进行方法复用。</p>
+</li>
+<li>
+<p><strong>组合继承</strong></p>
+<p>基本思想： 将原型链和借用构造函数结合，使用原型链实现对原型属性和方法的继承，通过借用构造函数来实现对实例属性的继承。</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">function SuperType(name)&#123;</div><div class="line">    this.name = name;</div><div class="line">    this.colors = [&quot;red&quot;, &quot;blue&quot;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">SuperType.prototype.sayName = function () &#123;</div><div class="line">    console.log(this.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function subType(name, age) &#123;</div><div class="line">    SuperType.call(this, name);</div><div class="line">    this.age = age;</div><div class="line">&#125;</div><div class="line"></div><div class="line">subType.prototype = new SuperType();</div><div class="line">subType.prototype.constructor = subType;</div><div class="line">subType.prototype.sayAge = function () &#123;</div><div class="line">    console.log(this.age);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var instance1 = new subType(&quot;Yan&quot;, &apos;11&apos;);</div><div class="line">instance1.colors.push(&apos;black&apos;);</div><div class="line">instance1.sayName(); //Yan</div><div class="line">instance1.sayAge(); //11</div><div class="line">console.log(instance1.colors);</div><div class="line"></div><div class="line">var isntance2 = new subType(&apos;YUan&apos;, &quot;1233&quot;);</div><div class="line">console.log(isntance2.colors);</div></pre></td></tr></table></figure>
+
+</code></pre>
+</li>
+<li>
+<p><strong>原型式继承</strong></p>
+<p>基本思想：借助原型可以基于已有的对象传建新对象</p>
+<p><pre><code>function obj(obj) {
+    function F() {}
+    F.prototype = obj;
+    return new F();
+}
+var person = {
+    name: &quot;aaaa&quot;,
+    friends: [&quot;shell&quot;, &quot;Ada&quot;]
+};
+
+var aperson = obj(person);
+aperson.friends.push(&quot;aperson&quot;);
+var bperson = obj(person);
+bperson.friends.push(&quot;bbperson&quot;);
+console.log(person.friends);
+
+</code></pre><br>
+- ES5用Object.create()方法规范化了原型式继承</p>
+<pre><code>var person = {
+    name: &quot;aaaa&quot;,
+    friends: [&quot;shell&quot;, &quot;Ada&quot;]
+};
+
+var anotherPerson = Object.create(person);
+anotherPerson.friends.push('another');
+console.log(person.friends); //shell, Ada, another
+</code></pre>
+
+</li>
+<li>
+<p><strong>寄生式继承</strong></p>
+<p>基本思想： 创建一个仅用于封装继承过程的函数，该函数在内部以某种方式来增强对象，最后再返回对象。</p>
+<p><pre><code>function object(obj) {
+    function F() {}
+    F.prototype = obj;
+    return new F();
+
+}
+
+
+var person = {
+    name: &quot;aaaa&quot;,
+    friends: [&quot;shell&quot;, &quot;Ada&quot;]
+};
+
+function createB (obj) {
+    var clone = object(obj);
+    clone.sayHi = function () {
+        console.log(&quot;Hi&quot;);
+    }
+    return clone;
+}
+
+var another = createB(person);
+another.sayHi();
+</code></pre><br>
+- 寄生组合式继承</p>
+<p>基本思路： 通过借用构造函数来继承属性，通过原型链的混成形式来继承方法</p>
+<pre><code>function obj(obj) {
+    function F() {}
+    F.prototype = obj;
+    return new F();
+}
+
+function inherit(subType, superType) {
+    var prototype = obj(SuperType.prototype);
+    prototype.constructor = subType;
+    subType.prototype = prototype;
+}
+
+function SuperType(name) {
+    this.name = name;
+    this.colors = [&quot;shell&quot;, &quot;Ada&quot;];
+}
+
+SuperType.prototype.sayName = function () {
+    console.log(this.name);
+}
+
+function SubType (name, age) {
+    SuperType.call(this, name);
+    this.age = age;
+}
+
+inherit(SubType, SuperType);
+
+SubType.prototype.sayAge = function () {
+    console.log(this.age);
+}
+
+var instance = new SubType(&quot;yy&quot;, &quot;111&quot;);
+instance.sayName(); //yy
+</code></pre>
+
+</li>
+</ul></article></body></html>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/23/webpack打包实践/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/qazyuan.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhiyuan Yang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/23/webpack打包实践/" itemprop="url">
+                  webpack打包实践
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-23T09:56:59+08:00">
+                2017-08-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/01/JavaScript高级程序设计笔记-部分/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/qazyuan.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhiyuan Yang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/01/JavaScript高级程序设计笔记-部分/" itemprop="url">
+                  JavaScript高级程序设计笔记(部分)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-01T21:17:30+08:00">
+                2017-07-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="6-1-理解对象"><a href="#6-1-理解对象" class="headerlink" title="6.1 理解对象"></a>6.1 理解对象</h4><ul>
+<li><p>属性类型</p>
+<p>  属性类型分为访问器属性和数据属性</p>
+<p>  <strong>访问器属性:</strong></p>
+<p>  <strong>数据属性:</strong> </p>
+</li>
+<li><p>定义多个属性</p>
+<p>  defineProperties() 接收两个对象参数：一个是要添加和修改其属性的对象；另一个是第一个对象中要添加和修改的属性</p>
+</li>
+<li>读取属性的特性</li>
+</ul>
+<h4 id="6-2-创建对象"><a href="#6-2-创建对象" class="headerlink" title="6.2 创建对象"></a>6.2 创建对象</h4><ul>
+<li><strong>工厂模式(定义函数，引用函数)</strong></li>
+<li><strong>构造函数模式(构造函数)</strong></li>
+<li><p><strong>原型模式</strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Person() &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype.name = &quot;yang&quot;;</div><div class="line">Person.prototype.age = 90;</div><div class="line">Person.prototype.job = &quot;software&quot;;</div><div class="line">Person.prototype.sayName = function () &#123;</div><div class="line">    console.log(this.name);</div><div class="line">&#125;</div><div class="line">var person1 = new Person();</div></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>理解原型对象</strong></p>
+<p>  创建一个函数的时候回根据一组特定的规则为该函数传建一个prototype的属性，这个属性指向函数的原型对象。</p>
+<p>  在默认情况下，所有原型对象都会自动获得一个constructor属性，这个属性的值是一个指向prototype属性所在函数的指针</p>
+</li>
+<li><p><strong>原型对象与in操作符</strong></p>
+<p>  <strong>in操作符(两种使用方式)：</strong> 一是for (var in )   二是单独使用判断对象是否能够访问给定的属性</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function Person() &#123;</div><div class="line">&#125;</div><div class="line">Person.prototype.name = &quot;yang&quot;;</div><div class="line">Person.prototype.age = 90;</div><div class="line">Person.prototype.job = &quot;software&quot;;</div><div class="line">Person.prototype.sayName = function () &#123;</div><div class="line">    console.log(this.name);</div><div class="line">&#125;</div><div class="line">var person1 = new Person();</div><div class="line">person1.age = 78;</div><div class="line">for (var item in person1) &#123;</div><div class="line">    console.log(item);</div><div class="line">&#125;//name, age, job, sayName</div><div class="line">console.log(&quot;name&quot; in person1); //true</div><div class="line">console.log(person1.hasOwnProperty(&apos;name&apos;));//false</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>更简单的原型语法</strong></p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function Person1() &#123;</div><div class="line">&#125;</div><div class="line">Person1.prototype = &#123;</div><div class="line">    constructor: Person1,  //需要重新给constructor赋值</div><div class="line">    name: &quot;yang&quot;,</div><div class="line">    age: 90,</div><div class="line">    job: &quot;software&quot;,</div><div class="line">    sayName: function () &#123;</div><div class="line">        console.log(this.name)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var friend = new Person1();</div><div class="line">console.log(friend.constructor == Person1);//true</div></pre></td></tr></table></figure>
+</code></pre></li>
+<li><p><strong>原型的动态性</strong></p>
+<p>  我们对原型对象所做的修改能够立即在实例上反映出来</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Person3 () &#123;</div><div class="line">&#125;</div><div class="line">var friend11 = new Person3();</div><div class="line">Person3.prototype = &#123;</div><div class="line">    name: &quot;yy&quot;,</div><div class="line">    constructor: Person3</div><div class="line">&#125; </div><div class="line">//以字面量的方式重写原型对象会切断现有原型与任何之前已经存在的对象实例之间的联系</div><div class="line">console.log(friend11.name); //undefined</div></pre></td></tr></table></figure>
+</code></pre></li>
+<li><p><strong>原生对象的原型</strong></p>
+<p>  通过原生对象的原型，不仅可以取得所有默认的方法的应用，也可以定义新的方法</p>
+</li>
+<li><p><strong>原型对象的问题</strong></p>
+<p>  原型中所有属性是被很多实例共享的，这种共享对于函数非常合适，但对于包含引用类型的值得属性来说就不方便了。</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Person() &#123;&#125;;</div><div class="line">Person.prototype = &#123;</div><div class="line">    constructor: Person,</div><div class="line">    name: [&quot;11&quot;, &quot;222&quot;]</div><div class="line">&#125;</div><div class="line">var person1 = new Person();</div><div class="line">var person2 = new Person();</div><div class="line">person1.name.push(&quot;333&quot;);</div><div class="line">console.log(person2.name); //&quot;11&quot;, &quot;222&quot;, &quot;333&quot;</div></pre></td></tr></table></figure>
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>组合使用构造函数模式和原型模式</strong></p>
+<p>  创建自定义类型最常见的方式，构造函数模型用于定义实例属性，而原型模式用于定义方法和共享的属性。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">function Person22(name, age, job) &#123;</div><div class="line">    this.name = name;</div><div class="line">    this.age = age;</div><div class="line">    this.job = job;</div><div class="line">    this.friends = [&quot;ann&quot;, &quot;may&quot;];</div><div class="line">&#125;;</div><div class="line"></div><div class="line">Person22.prototype = &#123;</div><div class="line">    constructor: Person22,</div><div class="line">    sayName: function() &#123;</div><div class="line">        console.log(this.name);</div><div class="line">        console.log(this);//指向调用它的实例对象</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var people1 = new Person22(&quot;lily&quot;, &quot;34&quot;, &quot;doctor&quot;);</div><div class="line">var people2 = new Person22(&quot;jue&quot;, &quot;45&quot;, &quot;master&quot;);</div><div class="line">people1.friends.push(&quot;Van&quot;);</div><div class="line">people1.sayName(); // lily</div><div class="line">console.log(people1.friends === people2.friends); //false</div><div class="line">console.log(people1.sayName === people2.sayName); //true</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>动态原型模式</strong></p>
+<p>  可以通过检查某个应该存在的方法是否有效来决定是否需要初始化原型。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Person(name, age) &#123;</div><div class="line">    this.name = name;</div><div class="line">    this.age = age;</div><div class="line">    if(typeof this.sayName != &apos;function&apos;) &#123; //根据判断来动态构建原型</div><div class="line">        Person.prototype.sayName = function () &#123;</div><div class="line">            console.log(this.name);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var friend = new Person(&quot;yyy&quot;, &quot;89&quot;);</div><div class="line">friend.sayName(); //yyy</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><strong>寄生构造函数模式</strong></p>
+<p>  构造函数在不返回值的情况下,默认会返回新对象实例。而通过在构造函数的末尾添加一个return语句，可以重写调用构造函数时返回的值.</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Person(name, age) &#123;</div><div class="line">    var o = new Object();</div><div class="line">    o.name = name;</div><div class="line">    o.age = age;</div><div class="line">    o.sayName = function () &#123;</div><div class="line">        console.log(this.name);</div><div class="line">    &#125;</div><div class="line">    return o;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var people = new Person(&quot;yyyy&quot;, &apos;89&apos;);</div><div class="line">people.sayName(); //yyyy</div></pre></td></tr></table></figure>
+<p>  例：创建一个具有额外方法的特殊数组，由于不能修改Array构造函数，因此可以使用这个模式</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function specialArray() &#123;</div><div class="line">    var values = new Array();</div><div class="line">    values.push.apply(values, arguments);</div><div class="line">    values.toFormatString = function() &#123;</div><div class="line">        return this.join(&apos;|&apos;);</div><div class="line">    &#125;</div><div class="line">    return values;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var values = new specialArray(&quot;red&quot;, &quot;blue&quot;);</div><div class="line">console.log(values.toFormatString());</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><strong>稳妥的构造函数模式</strong></p>
+<p>  稳妥对象是指没有公共属性，而且其他方法也不引用this的对象。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Person(name, age) &#123;</div><div class="line">    var o = new Object();</div><div class="line">    o.name = name;</div><div class="line">    o.age = age;</div><div class="line">    o.sayName = function () &#123;</div><div class="line">        console.log(name);</div><div class="line">    &#125;</div><div class="line">    return o;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var people = Person(&quot;yyyy&quot;, &apos;89&apos;);</div><div class="line">people.sayName(); //yyyy</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="6-3-继承"><a href="#6-3-继承" class="headerlink" title="6.3 继承"></a>6.3 继承</h4><p>许多OO语言都只是两种继承方式：接口继承和实现继承。接口继承只继承方法签名，而实现继承则继承实际的方法。ECMAScript只支持实现继承，而且其实现继承主要是依靠原型链来实现的。</p>
+<ul>
+<li><p><strong>原型链</strong></p>
+<p>  原型链作为实现继承的主要方法，其基本思想是利用原型让一个引用类型继承另一个引用类型的属性和方法。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">实现原型链的一种基本模式：</div><div class="line"></div><div class="line">function SuperType () &#123;</div><div class="line">    this.property = true;</div><div class="line">&#125;</div><div class="line"></div><div class="line">SuperType.prototype.getSuperValue = function () &#123;</div><div class="line">    return this.property;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">function SubType () &#123;</div><div class="line">    this.subproperty = false;</div><div class="line">&#125;</div><div class="line"></div><div class="line">SubType.prototype = new SuperType();</div><div class="line">SubType.prototype.getSubValue = function () &#123;</div><div class="line">    return this.subproperty;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var instance = new SubType();</div><div class="line">console.log(instance.getSuperValue());</div></pre></td></tr></table></figure>
+<ul>
+<li><p>默认的原型</p>
+<p>  所有的引用类型默认都继承了Object,这个继承也是通过原型链实现的，指向Object.prototype</p>
+</li>
+<li><p>原型和实例的关系</p>
+<p>  第一种方式是使用instanceof操作符</p>
+<p>  第二种方式是使用isPrototypeOf()方法，只要原型链中出现过的原型，都可以说是该原型链所派生的实例的原型。</p>
+</li>
+<li><p>谨慎地定义方法</p>
+<p>  给原型添加方法的代码一定要放在替换原型的语句之后。</p>
+<p>  使用字面量添加新方法，会导致调用构造函数的方法无效</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">SubType.prototype = new SuperType();</div><div class="line">//使用字面量添加新方法，会导致上面一行代码无效</div><div class="line">SubType.prototype.prototype = &#123;</div><div class="line">    getSubValue: function() &#123;</div><div class="line">        return this.subproperty;</div><div class="line">    &#125;,</div><div class="line">    </div><div class="line">    someOtherMethod: function() &#123;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>原型链的问题</p>
+<p>  包含引用类型的原型属性会被所有实例共享。</p>
+</li>
+</ul>
+</li>
+<li><p><strong><strong>借用构造函数实现继承</strong></strong></p>
+<p>  基本思想：在子类型构造函数的内部调用超类型构造函数</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function SuperType() &#123;</div><div class="line">    this.colors = [&apos;red&apos;, &apos;blue&apos;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">function SubType() &#123;</div><div class="line">    SuperType.call(this);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var instance1 = new SubType();</div><div class="line">instance1.colors.push(&apos;black&apos;);</div><div class="line">console.log(instance1.colors); //red,blue,black</div><div class="line"></div><div class="line">var isntance2 = new SubType();</div><div class="line">console.log(isntance2.colors); //red,blue</div></pre></td></tr></table></figure>
+</code></pre><ul>
+<li><p>传递参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function SuperType(name)&#123;</div><div class="line">    this.name = name;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function SubType() &#123;</div><div class="line">    SuperType.call(this, &quot;Amy&quot;);</div><div class="line">    this.age = 111;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var instance = new SubType();</div><div class="line">console.log(instance.name + &quot;####&quot; + instance.age); //Amy####111</div></pre></td></tr></table></figure>
+</li>
+<li><p>借用构造函数的问题</p>
+<p>方法都在构造函数中定义，不能进行方法复用。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>组合继承</strong></p>
+<p>  基本思想： 将原型链和借用构造函数结合，使用原型链实现对原型属性和方法的继承，通过借用构造函数来实现对实例属性的继承。</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">function SuperType(name)&#123;</div><div class="line">    this.name = name;</div><div class="line">    this.colors = [&quot;red&quot;, &quot;blue&quot;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">SuperType.prototype.sayName = function () &#123;</div><div class="line">    console.log(this.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function subType(name, age) &#123;</div><div class="line">    SuperType.call(this, name);</div><div class="line">    this.age = age;</div><div class="line">&#125;</div><div class="line"></div><div class="line">subType.prototype = new SuperType();</div><div class="line">subType.prototype.constructor = subType;</div><div class="line">subType.prototype.sayAge = function () &#123;</div><div class="line">    console.log(this.age);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var instance1 = new subType(&quot;Yan&quot;, &apos;11&apos;);</div><div class="line">instance1.colors.push(&apos;black&apos;);</div><div class="line">instance1.sayName(); //Yan</div><div class="line">instance1.sayAge(); //11</div><div class="line">console.log(instance1.colors);</div><div class="line"></div><div class="line">var isntance2 = new subType(&apos;YUan&apos;, &quot;1233&quot;);</div><div class="line">console.log(isntance2.colors);</div></pre></td></tr></table></figure>
+</code></pre></li>
+<li><p><strong>原型式继承</strong></p>
+<p>  基本思想：借助原型可以基于已有的对象传建新对象</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function obj(obj) &#123;</div><div class="line">    function F() &#123;&#125;</div><div class="line">    F.prototype = obj;</div><div class="line">    return new F();</div><div class="line">&#125;</div><div class="line">var person = &#123;</div><div class="line">    name: &quot;aaaa&quot;,</div><div class="line">    friends: [&quot;shell&quot;, &quot;Ada&quot;]</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var aperson = obj(person);</div><div class="line">aperson.friends.push(&quot;aperson&quot;);</div><div class="line">var bperson = obj(person);</div><div class="line">bperson.friends.push(&quot;bbperson&quot;);</div><div class="line">console.log(person.friends);</div></pre></td></tr></table></figure>
+<ul>
+<li><p>ES5用Object.create()方法规范化了原型式继承</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var person = &#123;</div><div class="line">    name: &quot;aaaa&quot;,</div><div class="line">    friends: [&quot;shell&quot;, &quot;Ada&quot;]</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var anotherPerson = Object.create(person);</div><div class="line">anotherPerson.friends.push(&apos;another&apos;);</div><div class="line">console.log(person.friends); //shell, Ada, another</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>寄生式继承</strong></p>
+<p>  基本思想： 创建一个仅用于封装继承过程的函数，该函数在内部以某种方式来增强对象，最后再返回对象。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">function object(obj) &#123;</div><div class="line">    function F() &#123;&#125;</div><div class="line">    F.prototype = obj;</div><div class="line">    return new F();</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">var person = &#123;</div><div class="line">    name: &quot;aaaa&quot;,</div><div class="line">    friends: [&quot;shell&quot;, &quot;Ada&quot;]</div><div class="line">&#125;;</div><div class="line"></div><div class="line">function createB (obj) &#123;</div><div class="line">    var clone = object(obj);</div><div class="line">    clone.sayHi = function () &#123;</div><div class="line">        console.log(&quot;Hi&quot;);</div><div class="line">    &#125;</div><div class="line">    return clone;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var another = createB(person);</div><div class="line">another.sayHi();</div></pre></td></tr></table></figure>
+</li>
+<li><p>寄生组合式继承</p>
+<p>  基本思路： 通过借用构造函数来继承属性，通过原型链的混成形式来继承方法</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">function obj(obj) &#123;</div><div class="line">    function F() &#123;&#125;</div><div class="line">    F.prototype = obj;</div><div class="line">    return new F();</div><div class="line">&#125;</div><div class="line"></div><div class="line">function inherit(subType, superType) &#123;</div><div class="line">    var prototype = obj(SuperType.prototype);</div><div class="line">    prototype.constructor = subType;</div><div class="line">    subType.prototype = prototype;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function SuperType(name) &#123;</div><div class="line">    this.name = name;</div><div class="line">    this.colors = [&quot;shell&quot;, &quot;Ada&quot;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">SuperType.prototype.sayName = function () &#123;</div><div class="line">    console.log(this.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function SubType (name, age) &#123;</div><div class="line">    SuperType.call(this, name);</div><div class="line">    this.age = age;</div><div class="line">&#125;</div><div class="line"></div><div class="line">inherit(SubType, SuperType);</div><div class="line"></div><div class="line">SubType.prototype.sayAge = function () &#123;</div><div class="line">    console.log(this.age);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var instance = new SubType(&quot;yy&quot;, &quot;111&quot;);</div><div class="line">instance.sayName(); //yy</div></pre></td></tr></table></figure></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/13/JavaScript语言精粹/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -370,30 +2271,36 @@
 <li>JavaScript是Web浏览器的语言，与浏览器的结合使它成为世界上最流行的编程语言之一</li>
 <li>优秀的想法：函数、弱类型、动态对象、对象字面量表示法(基于json)、原型继承</li>
 </ul>
-<h3 id="第二章-语法"><a href="#第二章-语法" class="headerlink" title="第二章 语法"></a>第二章 语法</h3><h5 id="空白"><a href="#空白" class="headerlink" title="空白"></a>空白</h5><ul>
+<h3 id="第二章-语法"><a href="#第二章-语法" class="headerlink" title="第二章 语法"></a>第二章 语法</h3><h4 id="空白"><a href="#空白" class="headerlink" title="空白"></a>空白</h4><ul>
 <li>分隔字符序列</li>
-<li>注释：两种方法// /**/<h5 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h5></li>
+<li>注释：两种方法// /**/</li>
+</ul>
+<h4 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h4><ul>
 <li>由一个字母开头，其后可选择性地加上一个或者多个字母、数字或下划线</li>
-<li>用于语句、变量、参数、属性名、运算符和标记<h5 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h5></li>
+<li>用于语句、变量、参数、属性名、运算符和标记</li>
+</ul>
+<h4 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h4><ul>
 <li>只有一个数字类型，它的内部被表示为64位浮点数</li>
-<li>NaN是一个数值，不能产生正常结果的运算结果 isNaN(number)检测NaN<h5 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h5></li>
+<li>NaN是一个数值，不能产生正常结果的运算结果 isNaN(number)检测NaN</li>
+</ul>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><ul>
 <li>转义字符 “\”</li>
 </ul>
-<h5 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h5><ul>
+<h4 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h4><ul>
 <li>语句通常是按照从上到下的顺序被执行。JavaScript可以通过条件语句(if和switch)、循环语句(while, for 和 do)、强制跳转语句(break、return、和throw)和函数调用来改变语句执行序列</li>
 <li>try语句执行一个代码块，并捕获该代码块抛出的任何异常。catch从句定义一个新的变量variable来接收抛出的异常对象。</li>
 <li>throw语句抛出一个异常。如果throw语句在一个try代码块中，那么控制流会跳转到catch从句中。如果throw语句在函数中，则该函数调用被抛弃，控制流跳转到调用该函数的try语句的catch从句中。</li>
 </ul>
-<h5 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h5><h5 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h5><ul>
+<h4 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h4><h4 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h4><ul>
 <li>一种可以方便地按指定规格创建新对象的表示法。</li>
 </ul>
-<h5 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h5><h3 id="第三章-对象"><a href="#第三章-对象" class="headerlink" title="第三章 对象"></a>第三章 对象</h3><ul>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><h3 id="第三章-对象"><a href="#第三章-对象" class="headerlink" title="第三章 对象"></a>第三章 对象</h3><ul>
 <li>js简单数据类型：数字、字符串、布尔值、null值和undefined值。</li>
 <li>对象是可变的键控集合，数组、函数、正则表达式都是对象</li>
 <li>对象是属性的容器，每个属性都拥有名字和值。 js里的对象是无类型(class-free)的：它对新属性的名字和属性的值没有限制。</li>
 <li>js包含一种原型链的特性，允许对象继承另一个对象的属性。</li>
 </ul>
-<h5 id="对象字面量"><a href="#对象字面量" class="headerlink" title="对象字面量"></a>对象字面量</h5><pre><code>一个对象字面量就是包围在一对花括号中的0或多个“名/值”对。
+<h4 id="对象字面量"><a href="#对象字面量" class="headerlink" title="对象字面量"></a>对象字面量</h4><pre><code>一个对象字面量就是包围在一对花括号中的0或多个“名/值”对。
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var flight = &#123;</div><div class="line">    airline: &quot;One&quot;,</div><div class="line">    number: 715,</div><div class="line">    departure: &#123;</div><div class="line">        IATA: &quot;jjj&quot;,</div><div class="line">        time: &quot;2017&quot;,</div><div class="line">        city: &quot;shanghai&quot;</div><div class="line">    &#125;,</div><div class="line">    arrival: &#123;</div><div class="line">        time: &quot;2018&quot;,</div><div class="line">        city: &quot;xian&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="检索"><a href="#检索" class="headerlink" title="检索"></a>检索</h4><pre><code>要检索对象里包含的值，可以采用在[]后缀中括住一个字符串表达式的方式。也可以用.表示法代替
     console.log(flight.arrival[&quot;time&quot;]);  ----2018
@@ -428,11 +2335,11 @@ var a = {}, b= {}, c = {};// a、b、c每个都引用一个不同的空对象
 <p>函数字面量可以出现在任何允许表达式出现的地方。函数也可以被定义在其他函数中。一个内部函数除了可以访问自己的参数和变量，同时，他也能自由地访问把它嵌套在其中的父函数的参数与变量。通过函数字面量创建的函数对象包含一个连到外部上下文的链接。这被称为闭包。</p>
 <h4 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h4><p>调用一个函数会暂停当前函数的执行，传递控制权和参数的新函数。除了声明时定义的形式参数，每个函数还接收两个附加的参数：this 和 arguments。 参数this在面向对象中的值取决于调用的模式。arguments？</p>
 <p>调用运算符是跟在任何一个函数值的表达式之后的一对圆括号。圆括号内可包含0个或多个用逗号隔开的表达式。</p>
-<h6 id="this"><a href="#this" class="headerlink" title="this"></a>this</h6><p>this的四种调用模式：方法调用模式、函数调用模式、构造器调用模式和apply调用模式。&lt;这些模式在如何初始化关键参数this上存在差异&gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- 方法调用</div><div class="line">    当一个函数被保存为对象的一个属性时，我们称它为一个方法。</div><div class="line">    当一个方法被调用时，this被绑定到该对象。</div><div class="line">    var myObject = &#123;</div><div class="line">        value: 0,</div><div class="line">        increment: function (inc) &#123;</div><div class="line">            this.value += (typeof(inc) == &apos;number&apos;) ? inc : 1;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    object.increment(2);</div><div class="line">    console.log(myObject.value);</div><div class="line"></div><div class="line">    - 方法可以使用this访问自己所属的对象，所以它能从对象中取值或者对对象进行修改。</div><div class="line">    - this到对象的绑定发生在调用的时候。这个“超级”延迟绑定使得函数可以对this高度复用。</div><div class="line">    - 通过this可取得它们所属对象的上下文的方法称为公共方法</div></pre></td></tr></table></figure></p>
+<h4 id="this"><a href="#this" class="headerlink" title="this"></a>this</h4><p>this的四种调用模式：方法调用模式、函数调用模式、构造器调用模式和apply调用模式。&lt;这些模式在如何初始化关键参数this上存在差异&gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- 方法调用</div><div class="line">    当一个函数被保存为对象的一个属性时，我们称它为一个方法。</div><div class="line">    当一个方法被调用时，this被绑定到该对象。</div><div class="line">    var myObject = &#123;</div><div class="line">        value: 0,</div><div class="line">        increment: function (inc) &#123;</div><div class="line">            this.value += (typeof(inc) == &apos;number&apos;) ? inc : 1;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    object.increment(2);</div><div class="line">    console.log(myObject.value);</div><div class="line"></div><div class="line">    - 方法可以使用this访问自己所属的对象，所以它能从对象中取值或者对对象进行修改。</div><div class="line">    - this到对象的绑定发生在调用的时候。这个“超级”延迟绑定使得函数可以对this高度复用。</div><div class="line">    - 通过this可取得它们所属对象的上下文的方法称为公共方法</div></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">- 函数调用</div><div class="line">当一个函数并非一个对象的属性时，那么它就是被当作一个函数来调用的</div><div class="line">以此模式调用函数时，this被绑定到全局对象。</div><div class="line">解决方案：如果该方法定义一个变量并给它赋值为this, 那么内部函数就可以通过那个变量访问到this.</div><div class="line">通常把变量名命名为that.</div><div class="line">myObject.double = function () &#123;</div><div class="line">    var that = this; //this是指myObject对象</div><div class="line">    var helper = function () &#123;</div><div class="line">        //helper里的this被绑定到全局对象</div><div class="line">        that.value = add(that.value, that.value);</div><div class="line">    &#125;</div><div class="line">    helper();</div><div class="line">&#125;</div><div class="line"></div><div class="line">function add(a, b) &#123;</div><div class="line">    return a+b;</div><div class="line">&#125;</div><div class="line">myObject.double();</div><div class="line">document.write(myObject.value);</div><div class="line">        -匿名函数自调用</div><div class="line">        (function(a1,a2)&#123;</div><div class="line">            alert(&quot;Here!&quot;+(a1+a2));</div><div class="line">        &#125;)(1,2);</div><div class="line"></div><div class="line">        (function(a1,a2)&#123;</div><div class="line">            alert(&quot;Here!&quot; +(a1+a2));</div><div class="line">        &#125;(1,2));</div><div class="line"></div><div class="line">        void function(a1,a2)&#123;</div><div class="line">            alert(&quot;Here!&quot; +(a1+a2));</div><div class="line">        &#125;(1,2);</div><div class="line"></div><div class="line">        var f = function(a1,a2)&#123;</div><div class="line">            alert(&quot;Here!&quot; +(a1+a2));</div><div class="line">        &#125;(1,2);</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">- 构造器调用</div><div class="line">js是一门基于原型继承的语言。对象可以直接从其他对象继承属性。js是无类型的。js提供了一套和基于类的语言类似的对象构建语法。</div><div class="line">如果在一个函数前面带上new来调用，那么将会创建一个连接到该函数的prototype成员的新对象，同时，this会被绑定到新的对象上。</div><div class="line">// 构造器调用模式</div><div class="line">    var Quo = function (string) &#123;</div><div class="line">        this.status = string;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    Quo.prototype.get_status = function()&#123;</div><div class="line">        return this.status</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    var myQuo = new Quo(&quot;confused&quot;);</div><div class="line">    document.write(myQuo.get_status()); //打印输出confused</div><div class="line"></div><div class="line">一个函数，如果创建的目的是希望结合new前缀来调用，那么它就被称为构造器函数。</div><div class="line">按照约定，他们保存在以大写格式命名的变量里。</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">- apply调用</div><div class="line">apply方法可以构建一个参数数组传递给调用函数。apply方法接收两个参数，第一个是要绑定给this的值，第2个是一个参数数组</div><div class="line">// apply调用模式</div><div class="line">    var array = [3, 4];</div><div class="line">    var sum = add.apply(null, array);</div><div class="line"></div><div class="line">    var statusObject = &#123;</div><div class="line">        status: &quot;A-OK&quot;</div><div class="line">    &#125;;</div><div class="line">    // statusObject并没有继承自Quo.prototype,但是我们可以在statusObject</div><div class="line">    // 上调用get_status方法</div><div class="line">    var status = Quo.prototype.get_status.apply(statusObject);</div><div class="line">    console.log(status); //输出为&apos;A-OK&apos;</div></pre></td></tr></table></figure>
-<h6 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h6><pre><code>当函数被调用时，得到arguments数组。
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><pre><code>当函数被调用时，得到arguments数组。
 函数可以通过此参数访问所有它被调用时传递给它的参数列表。
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var sum = function() &#123;</div><div class="line">    var i, sum = 0;</div><div class="line">    for(i = 0; i &lt; arguments.length; i++) &#123;</div><div class="line">        sum += arguments[i];</div><div class="line">    &#125;</div><div class="line">    return sum;</div><div class="line">&#125;</div><div class="line">document.write(sum(4, 8, 9, 6)); // 27</div><div class="line"></div><div class="line">因为语言的设计错误，arguments并是不一个真正的数组。它只是一个“类似数组”的对象。arguments拥有一个length属性，但它没有任何数组的方法。</div></pre></td></tr></table></figure>
 <h4 id="返回"><a href="#返回" class="headerlink" title="返回"></a>返回</h4><pre><code>return语句可用来使函数提前返回。当return被执行时，函数立即返回而不再执行余下语句。
@@ -553,8 +2460,8 @@ var a = {}, b= {}, c = {};// a、b、c每个都引用一个不同的空对象
 </ol>
 <p>8.array.sort(comparefn)<br>// 默认是字符串排序</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 把item插入到array的开始部分，返回array的新的长度值。</div><div class="line">        var a = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];</div><div class="line">        var r = a.unshift(&apos;r&apos;, &apos;@&apos;);</div><div class="line">        console.log(a);</div><div class="line">        console.log(r)</div></pre></td></tr></table></figure>
-<h5 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h5><p>function.apply(thisArg, argArray)</p>
-<h5 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h5><ol>
+<h4 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h4><p>function.apply(thisArg, argArray)</p>
+<h4 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h4><ol>
 <li><p>number.toExponential(fractionDigits)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 把number转换成一个之书形式的字符串。</div><div class="line">// 可选参数fractionDigits控制其小数点后的数字维数(0~20).</div><div class="line">    document.write(Math.PI.toExponential(0)); //3e+0</div><div class="line">    document.write(Math.PI.toExponential(1)); //3.1e+0</div></pre></td></tr></table></figure>
 </li>
@@ -568,14 +2475,14 @@ var a = {}, b= {}, c = {};// a、b、c每个都引用一个不同的空对象
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 将number转换成一个字符串。</div><div class="line">// 可选参数radix控制基数(2~36)，默认是以10为基数的。</div><div class="line">        document.write(Math.PI.toString(2));//11.00100100001111110110101010001000100001011</div><div class="line">        document.write(Math.PI.toString()); //3.141592653589793</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<h5 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h5><p>object.hasOwnProperty(name)<br>    如果这个object包含了一个名为name的属性，那么hasOwnProperty方法返回true. 原型链中的同名属性是不会被检查的。返回为false</p>
-<h5 id="RegExp"><a href="#RegExp" class="headerlink" title="RegExp"></a>RegExp</h5><ol>
+<h4 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h4><p>object.hasOwnProperty(name)<br>    如果这个object包含了一个名为name的属性，那么hasOwnProperty方法返回true. 原型链中的同名属性是不会被检查的。返回为false</p>
+<h4 id="RegExp"><a href="#RegExp" class="headerlink" title="RegExp"></a>RegExp</h4><ol>
 <li><p>regexp.exec(string)<br>如果它成功匹配regexp和字符串string,它会返回一个数组。数组中下标为0的元素将包含正则表达式regexp匹配的子字符串。下标为i的元素是分组i捕获的文本。如果匹配失败，那么它会返回null</p>
 </li>
 <li><p>regexp.test(string)<br>如果该regexp匹配string，它返回true;否则返回false</p>
 </li>
 </ol>
-<h5 id="String"><a href="#String" class="headerlink" title="String"></a>String</h5><ol>
+<h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4><ol>
 <li>string.chartAt(pos)<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 返回在string中pos位置处的字符</div><div class="line">    var name = &quot;Zhiyuan&quot;;</div><div class="line">    var initial = name.charAt(0);</div><div class="line">    document.write(initial + &apos;&lt;br&gt;&apos;);//Z</div></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -611,149 +2518,6 @@ var a = {}, b= {}, c = {};// a、b、c每个都引用一个不同的空对象
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var a = String.fromCharCode(67, 97, 116);</div><div class="line">document.write(a); //Cat</div></pre></td></tr></table></figure>
 <h3 id="第九章-代码风格"><a href="#第九章-代码风格" class="headerlink" title="第九章 代码风格"></a>第九章 代码风格</h3>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/13/bookNotes/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yuan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/qazyuan.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhiyuan Yang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/13/bookNotes/" itemprop="url">
-                  bookNotes
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-13T02:10:45+08:00">
-                2017-06-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/notes/" itemprop="url" rel="index">
-                    <span itemprop="name">notes</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>##bookNotes</p>
-
           
         
       
@@ -832,7 +2596,7 @@ var a = {}, b= {}, c = {};// a、b、c每个都引用一个不同的空对象
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -843,7 +2607,7 @@ var a = {}, b= {}, c = {};// a、b、c每个都引用一个不同的空对象
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -854,7 +2618,7 @@ var a = {}, b= {}, c = {};// a、b、c每个都引用一个不同的空对象
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
