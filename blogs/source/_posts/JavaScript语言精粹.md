@@ -2,7 +2,7 @@
 title: javaScript语言精粹笔记
 date: 2017-06-13 02:10:45
 tags: [JS, notes]
-categories: notes
+categories: [前端]
 ---
 
 ### 第一章 精华

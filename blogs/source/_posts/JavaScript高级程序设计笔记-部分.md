@@ -2,7 +2,7 @@
 title: JavaScript高级程序设计笔记(部分)
 date: 2017-07-01 21:17:30
 tags: [JS, notes]
-categories: [JS]
+categories: [前端]
 ---
 #### 6.1 理解对象
 - 属性类型
