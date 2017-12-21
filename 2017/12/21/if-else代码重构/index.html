@@ -1,0 +1,703 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="一. If else代码出现场景异常逻辑处理和不同状态处理 1.  异常逻辑处理： 只能一个分支是正常流程2. 不同状态处理： 所有的分支都是正常流程例子：123456789101112131415161718//举例一：异常逻辑处理例子    var obj = getObj();    if (obj != null) &amp;#123;        //do something 正常的处理流程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="if else代码重构">
+<meta property="og:url" content="http://yoursite.com/2017/12/21/if-else代码重构/index.html">
+<meta property="og:site_name" content="Zhiyuan Yang">
+<meta property="og:description" content="一. If else代码出现场景异常逻辑处理和不同状态处理 1.  异常逻辑处理： 只能一个分支是正常流程2. 不同状态处理： 所有的分支都是正常流程例子：123456789101112131415161718//举例一：异常逻辑处理例子    var obj = getObj();    if (obj != null) &amp;#123;        //do something 正常的处理流程">
+<meta property="og:updated_time" content="2017-12-21T03:24:03.712Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="if else代码重构">
+<meta name="twitter:description" content="一. If else代码出现场景异常逻辑处理和不同状态处理 1.  异常逻辑处理： 只能一个分支是正常流程2. 不同状态处理： 所有的分支都是正常流程例子：123456789101112131415161718//举例一：异常逻辑处理例子    var obj = getObj();    if (obj != null) &amp;#123;        //do something 正常的处理流程">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/21/if-else代码重构/"/>
+
+
+
+
+
+  <title> if else代码重构 | Zhiyuan Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhiyuan Yang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/21/if-else代码重构/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/qazyuan.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhiyuan Yang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                if else代码重构
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-21T10:46:12+08:00">
+                2017-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="一-If-else代码出现场景"><a href="#一-If-else代码出现场景" class="headerlink" title="一. If else代码出现场景"></a>一. If else代码出现场景</h4><p>异常逻辑处理和不同状态处理</p>
+<h5 id="1-异常逻辑处理：-只能一个分支是正常流程"><a href="#1-异常逻辑处理：-只能一个分支是正常流程" class="headerlink" title="1.  异常逻辑处理： 只能一个分支是正常流程"></a>1.  异常逻辑处理： 只能一个分支是正常流程</h5><h5 id="2-不同状态处理：-所有的分支都是正常流程"><a href="#2-不同状态处理：-所有的分支都是正常流程" class="headerlink" title="2. 不同状态处理： 所有的分支都是正常流程"></a>2. 不同状态处理： 所有的分支都是正常流程</h5><p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//举例一：异常逻辑处理例子</div><div class="line">    var obj = getObj();</div><div class="line">    if (obj != null) &#123;</div><div class="line">        //do something 正常的处理流程</div><div class="line">    &#125;else&#123;</div><div class="line">        //do something 出错的处理流程</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">//举例二：状态处理例子</div><div class="line">    var obj = getObj();</div><div class="line">    if (obj.getType == 1) &#123;</div><div class="line">        //do something</div><div class="line">    &#125;else if (obj.getType == 2) &#123;</div><div class="line">        //do something</div><div class="line">    &#125;else&#123;</div><div class="line">        //do something</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<h4 id="二-if-else代码的缺点"><a href="#二-if-else代码的缺点" class="headerlink" title="二. if-else代码的缺点"></a>二. if-else代码的缺点</h4><h5 id="1-最大的问题是代码逻辑复杂，维护性差，极容易引发bug。"><a href="#1-最大的问题是代码逻辑复杂，维护性差，极容易引发bug。" class="headerlink" title="1. 最大的问题是代码逻辑复杂，维护性差，极容易引发bug。"></a>1. 最大的问题是代码逻辑复杂，维护性差，极容易引发bug。</h5><h5 id="2-如果使用if-else，说明if分支和else分支的重视是同等的，但大多数情况并非如此，容易引起误解和理解困难。"><a href="#2-如果使用if-else，说明if分支和else分支的重视是同等的，但大多数情况并非如此，容易引起误解和理解困难。" class="headerlink" title="2. 如果使用if-else，说明if分支和else分支的重视是同等的，但大多数情况并非如此，容易引起误解和理解困难。"></a>2. 如果使用if-else，说明if分支和else分支的重视是同等的，但大多数情况并非如此，容易引起误解和理解困难。</h5><h4 id="三-优化方案"><a href="#三-优化方案" class="headerlink" title="三. 优化方案"></a>三. 优化方案</h4><p>原则： 尽可能地维持正常流程代码在最外层。</p>
+<p>实现的手段：减少嵌套、移除临时变量、条件取反判断、合并条件表达式等</p>
+<h4 id="四-异常逻辑处理型重构"><a href="#四-异常逻辑处理型重构" class="headerlink" title="四. 异常逻辑处理型重构"></a>四. 异常逻辑处理型重构</h4><h5 id="1-实例一：-合并条件表达式"><a href="#1-实例一：-合并条件表达式" class="headerlink" title="1. 实例一： 合并条件表达式"></a>1. 实例一： 合并条件表达式</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">//重构前：</div><div class="line">    function disablityAmount()&#123;</div><div class="line">        if(_seniority &lt; 2) </div><div class="line">            return 0;</div><div class="line">    </div><div class="line">        if(_monthsDisabled &gt; 12)</div><div class="line">            return 0;</div><div class="line">    </div><div class="line">        if(_isPartTime)</div><div class="line">            return 0;</div><div class="line">    </div><div class="line">        //do somethig</div><div class="line">    </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">//重构后：</div><div class="line">    function disablityAmount()&#123;</div><div class="line">        if(_seniority &lt; 2 || _monthsDisabled &gt; 12 || _isPartTime) </div><div class="line">            return 0;</div><div class="line">    </div><div class="line">        //do somethig</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h5 id="2-实例二：-避免逻辑嵌套太深"><a href="#2-实例二：-避免逻辑嵌套太深" class="headerlink" title="2. 实例二： 避免逻辑嵌套太深"></a>2. 实例二： 避免逻辑嵌套太深</h5><p>如果if-else嵌套没有关联性，直接提取到第一层，一定要避免逻辑嵌套太深。尽量减少临时变量改用return直接返回。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">//重构前</div><div class="line">    function getPayAmount()&#123;</div><div class="line">        var result;</div><div class="line">        if(_isDead) &#123;</div><div class="line">            result = deadAmount();</div><div class="line">        &#125;else&#123;</div><div class="line">            if(_isSeparated)&#123;</div><div class="line">                result = separatedAmount();</div><div class="line">            &#125;</div><div class="line">            else&#123;</div><div class="line">                if(_isRetired)&#123;</div><div class="line">                    result = retiredAmount();</div><div class="line">                else&#123;</div><div class="line">                    result = normalPayAmount();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    return result;</div><div class="line"></div><div class="line">//重构后：</div><div class="line">    function getPayAmount()&#123;</div><div class="line">        if(_isDead) </div><div class="line">            return deadAmount();</div><div class="line">    </div><div class="line">        if(_isSeparated)</div><div class="line">            return separatedAmount();</div><div class="line">    </div><div class="line">        if(_isRetired)</div><div class="line">            return retiredAmount();</div><div class="line">    </div><div class="line">        return normalPayAmount();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h5 id="3-实例三：-异常情况先退出，让正常流程维持在主干流程"><a href="#3-实例三：-异常情况先退出，让正常流程维持在主干流程" class="headerlink" title="3. 实例三： 异常情况先退出，让正常流程维持在主干流程"></a>3. 实例三： 异常情况先退出，让正常流程维持在主干流程</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">//重构前：</div><div class="line">    function getAdjustedCapital()&#123;</div><div class="line">        var  result = 0.0;</div><div class="line">        if(_capital &gt; 0.0 )&#123;</div><div class="line">            if(_intRate &gt; 0 &amp;&amp; _duration &gt;0)&#123;</div><div class="line">                resutl = (_income / _duration) *ADJ_FACTOR;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return result;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">//第一步: 减少嵌套和移除临时变量：</div><div class="line">    var getAdjustedCapital()&#123;</div><div class="line">        if(_capital &lt;= 0.0 )&#123;</div><div class="line">            return 0.0;</div><div class="line">        &#125;</div><div class="line">        if(_intRate &gt; 0 &amp;&amp; _duration &gt;0)&#123;</div><div class="line">            return (_income / _duration) *ADJ_FACTOR;</div><div class="line">        &#125;</div><div class="line">        return 0.0;</div><div class="line">    &#125;</div><div class="line">//这样重构后，还不够，因为主要的语句`(_income / _duration) *ADJ_FACTOR;`在if内部，并非在最外层，根据优化原则（尽可能地维持正常流程代码在最外层），可以再继续重构：</div><div class="line">    </div><div class="line">    var getAdjustedCapital()&#123;</div><div class="line">        if(_capital &lt;= 0.0 )&#123;</div><div class="line">            return 0.0;</div><div class="line">        &#125;</div><div class="line">        if(_intRate &lt;= 0 || _duration &lt;= 0)&#123;</div><div class="line">            return 0.0;</div><div class="line">        &#125;</div><div class="line">    </div><div class="line">        return (_income / _duration) *ADJ_FACTOR;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h5 id="4-实例四：-异常条件先退出，保持主干流程"><a href="#4-实例四：-异常条件先退出，保持主干流程" class="headerlink" title="4. 实例四： 异常条件先退出，保持主干流程"></a>4. 实例四： 异常条件先退出，保持主干流程</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">//重构前：</div><div class="line">   /* 查找年龄大于18岁且为男性的学生列表 */</div><div class="line">    function getStudents(int uid)&#123;</div><div class="line">        var result = [];</div><div class="line">        stu = getStudentByUid(uid);</div><div class="line">        if (stu != null) &#123;</div><div class="line">            teacher = stu.getTeacher();</div><div class="line">            if(teacher != null)&#123;</div><div class="line">                students = teacher.getStudents();</div><div class="line">                if(students != null)&#123;</div><div class="line">                    for(Student student : students)&#123;</div><div class="line">                        if(student.getAge() &gt; = 18 &amp;&amp; student.getGender() == MALE)&#123;</div><div class="line">                            result.push(student);</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;else &#123;</div><div class="line">                    console.error(&quot;获取学生列表失败&quot;);</div><div class="line">                &#125;</div><div class="line">            &#125;else &#123;</div><div class="line">                console.error(&quot;获取老师信息失败&quot;);</div><div class="line">            &#125;</div><div class="line">        &#125; else &#123;</div><div class="line">            console.error(&quot;获取学生信息失败&quot;);</div><div class="line">        &#125;</div><div class="line">        return result;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">//嵌套过深，解决方法是异常条件先退出，保持主干流程是核心流程：</div><div class="line"></div><div class="line">//重构后：</div><div class="line"></div><div class="line">   /* 查找年龄大于18岁且为男性的学生列表 */</div><div class="line">    function getStudents(uid)&#123;</div><div class="line">        result = [];</div><div class="line">        stu = getStudentByUid(uid);</div><div class="line">        if (stu == null) &#123;</div><div class="line">            console.error(&quot;获取学生信息失败&quot;);</div><div class="line">            return result;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        var teacher = stu.getTeacher();</div><div class="line">        if(teacher == null)&#123;</div><div class="line">            console.error(&quot;获取老师信息失败&quot;);</div><div class="line">            return result;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        var students = teacher.getStudents();</div><div class="line">        if(students == null)&#123;</div><div class="line">            console.error(&quot;获取学生列表失败&quot;);</div><div class="line">            return result;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        for(Student student : students)&#123;</div><div class="line">            if(student.getAge() &gt; 18 &amp;&amp; student.getGender() == MALE)&#123;</div><div class="line">                result.push(student);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return result;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h4 id="五-状态处理型重构"><a href="#五-状态处理型重构" class="headerlink" title="五. 状态处理型重构"></a>五. 状态处理型重构</h4><h5 id="1-实例一：-把if-else内的代码都封装成一个公共函数"><a href="#1-实例一：-把if-else内的代码都封装成一个公共函数" class="headerlink" title="1. 实例一： 把if-else内的代码都封装成一个公共函数"></a>1. 实例一： 把if-else内的代码都封装成一个公共函数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">//重构前</div><div class="line">    function getPayAmount()&#123;</div><div class="line">        var obj = getObj();</div><div class="line">        var money = 0;</div><div class="line">        if (obj.getType == 1) &#123;</div><div class="line">            var objA = obj.getObjectA();</div><div class="line">            money = objA.getMoney()*obj.getNormalMoneryA();</div><div class="line">        &#125;</div><div class="line">        else if (obj.getType == 2) &#123;</div><div class="line">            var objB = obj.getObjectB();</div><div class="line">            money = objB.getMoney()*obj.getNormalMoneryB()+1000;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">//重构后</div><div class="line">    function getPayAmount()&#123;</div><div class="line">        var obj = getObj();</div><div class="line">        if (obj.getType == 1) &#123;</div><div class="line">            return getType1Money(obj);</div><div class="line">        &#125;</div><div class="line">        else if (obj.getType == 2) &#123;</div><div class="line">            return getType2Money(obj);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    function getType1Money(obj)&#123;</div><div class="line">        var objA = obj.getObjectA();</div><div class="line">        return objA.getMoney()*obj.getNormalMoneryA();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    function getType2Money(obj)&#123;</div><div class="line">        ObjectB objB = obj.getObjectB();</div><div class="line">        return objB.getMoney()*obj.getNormalMoneryB()+1000;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h5 id="2-实例二：-用多态取代条件表达式"><a href="#2-实例二：-用多态取代条件表达式" class="headerlink" title="2. 实例二： 用多态取代条件表达式"></a>2. 实例二： 用多态取代条件表达式</h5><p>条件表达式，它根据对象类型的不同而选择不同的行为。将这个表达式的每个分支放进一个子类内的覆写函数中，然后将原始函数声明为抽象函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">//重构前</div><div class="line">    function getSpeed()&#123;</div><div class="line">        switch(_type)&#123;</div><div class="line">            case EUROPEAN:</div><div class="line">                return getBaseSpeed();</div><div class="line">            case AFRICAN:</div><div class="line">                return getBaseSpeed()-getLoadFactor()*_numberOfCoconuts;</div><div class="line">            case NORWEGIAN_BLUE:</div><div class="line">                return (_isNailed)?0:getBaseSpeed(_voltage);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">//重构后</div><div class="line">    class Bird&#123;</div><div class="line">        abstract double getSpeed();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    class European extends Bird&#123;</div><div class="line">        double getSpeed()&#123;</div><div class="line">            return getBaseSpeed();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    class African extends Bird&#123;</div><div class="line">        double getSpeed()&#123;</div><div class="line">            return getBaseSpeed()-getLoadFactor()*_numberOfCoconuts;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    class NorwegianBlue extends Bird&#123;</div><div class="line">        double getSpeed()&#123;</div><div class="line">            return (_isNailed)?0:getBaseSpeed(_voltage);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h4 id="综合实例"><a href="#综合实例" class="headerlink" title="综合实例"></a>综合实例</h4><h5 id="综合实例一"><a href="#综合实例一" class="headerlink" title="综合实例一"></a>综合实例一</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">function categoryHandle(category) &#123;</div><div class="line">  if(category !== &apos;A&apos;) &#123;</div><div class="line">    if(category === &apos;D&apos;) &#123;</div><div class="line">      console.log(&apos;D&apos;);</div><div class="line">    &#125; else &#123;</div><div class="line">      console.log(&apos;B,C&apos;);</div><div class="line">    &#125;</div><div class="line">    console.log(&apos;B, C ,D&apos;)</div><div class="line">  &#125; else &#123;</div><div class="line">    console.log(&apos;A&apos;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function categoryHandle(category) &#123;</div><div class="line">  if(category === &apos;A&apos;) &#123;</div><div class="line">    console.log(&apos;A&apos;);</div><div class="line">  &#125; else if (category === &apos;B&apos;)&#123;</div><div class="line">    console.log(&apos;B&apos;);</div><div class="line">  &#125; else if (category === &apos;C&apos;)&#123;</div><div class="line">    console.log(&apos;D&apos;);</div><div class="line">  &#125;else if (category === &apos;D&apos;)&#123;</div><div class="line">    console.log(&apos;D&apos;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function categoryHandleRefactor(category) &#123;</div><div class="line">  var categoryAction = &#123;</div><div class="line">    &apos;A&apos;: &#123;</div><div class="line">      run: function () &#123;</div><div class="line">        console.log(&apos;A&apos;)</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    &apos;B&apos;: &#123;</div><div class="line">      run: function () &#123;</div><div class="line">        console.log(&apos;B&apos;)</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    &apos;C&apos;: &#123;</div><div class="line">      run: function () &#123;</div><div class="line">        console.log(&apos;C&apos;)</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    &apos;D&apos;: &#123;</div><div class="line">      run: function () &#123;</div><div class="line">        console.log(&apos;D&apos;)</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">  categoryAction[category].run();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="六-总结"><a href="#六-总结" class="headerlink" title="六. 总结"></a>六. 总结</h4><p>if-else代码是每一个程序员最容易写出的代码，稍不注意，就产生一堆难以维护和逻辑混乱的代码。</p>
+<p>针对条件型代码重构把握一个原则<br>尽可能地维持正常流程代码在最外层，保持主干流程是正常核心流程。</p>
+<p>为维持这个原则：合并条件表达式可以有效地减少if语句数目；减少嵌套能减少深层次逻辑；<br>异常条件先退出自然而然主干流程就是正常流程。</p>
+<p>针对状态处理型重构方法有两种：一种是把不同状态的操作封装成函数，简短if-else内代码行数；另一种是利用面向对象多态特性直接去掉了条件判断。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/16/前端编码规范/" rel="next" title="前端编码规范">
+                <i class="fa fa-chevron-left"></i> 前端编码规范
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/qazyuan.png"
+               alt="Yuan" />
+          <p class="site-author-name" itemprop="name">Yuan</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-If-else代码出现场景"><span class="nav-number">1.</span> <span class="nav-text">一. If else代码出现场景</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-异常逻辑处理：-只能一个分支是正常流程"><span class="nav-number">1.1.</span> <span class="nav-text">1.  异常逻辑处理： 只能一个分支是正常流程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-不同状态处理：-所有的分支都是正常流程"><span class="nav-number">1.2.</span> <span class="nav-text">2. 不同状态处理： 所有的分支都是正常流程</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-if-else代码的缺点"><span class="nav-number">2.</span> <span class="nav-text">二. if-else代码的缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-最大的问题是代码逻辑复杂，维护性差，极容易引发bug。"><span class="nav-number">2.1.</span> <span class="nav-text">1. 最大的问题是代码逻辑复杂，维护性差，极容易引发bug。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-如果使用if-else，说明if分支和else分支的重视是同等的，但大多数情况并非如此，容易引起误解和理解困难。"><span class="nav-number">2.2.</span> <span class="nav-text">2. 如果使用if-else，说明if分支和else分支的重视是同等的，但大多数情况并非如此，容易引起误解和理解困难。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三-优化方案"><span class="nav-number">3.</span> <span class="nav-text">三. 优化方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四-异常逻辑处理型重构"><span class="nav-number">4.</span> <span class="nav-text">四. 异常逻辑处理型重构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-实例一：-合并条件表达式"><span class="nav-number">4.1.</span> <span class="nav-text">1. 实例一： 合并条件表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-实例二：-避免逻辑嵌套太深"><span class="nav-number">4.2.</span> <span class="nav-text">2. 实例二： 避免逻辑嵌套太深</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-实例三：-异常情况先退出，让正常流程维持在主干流程"><span class="nav-number">4.3.</span> <span class="nav-text">3. 实例三： 异常情况先退出，让正常流程维持在主干流程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-实例四：-异常条件先退出，保持主干流程"><span class="nav-number">4.4.</span> <span class="nav-text">4. 实例四： 异常条件先退出，保持主干流程</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五-状态处理型重构"><span class="nav-number">5.</span> <span class="nav-text">五. 状态处理型重构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-实例一：-把if-else内的代码都封装成一个公共函数"><span class="nav-number">5.1.</span> <span class="nav-text">1. 实例一： 把if-else内的代码都封装成一个公共函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-实例二：-用多态取代条件表达式"><span class="nav-number">5.2.</span> <span class="nav-text">2. 实例二： 用多态取代条件表达式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#综合实例"><span class="nav-number">6.</span> <span class="nav-text">综合实例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#综合实例一"><span class="nav-number">6.1.</span> <span class="nav-text">综合实例一</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六-总结"><span class="nav-number">7.</span> <span class="nav-text">六. 总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuan</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
