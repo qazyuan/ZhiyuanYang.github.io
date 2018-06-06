@@ -1,0 +1,800 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="js变量类型 Array Function Object引用类型 typeof运算符：只能区分值类型的变量,引用类型除了funciton之外其他的引用类型不能区分 123456789typeof undefined; //undefeinedtypeof &amp;apos;abd&amp;apos;; //stringtypeof 123; //numbertypeof true; //booleantypeo">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js基础知识点1">
+<meta property="og:url" content="http://yoursite.com/2017/11/20/js基础知识点1/index.html">
+<meta property="og:site_name" content="Zhiyuan Yang">
+<meta property="og:description" content="js变量类型 Array Function Object引用类型 typeof运算符：只能区分值类型的变量,引用类型除了funciton之外其他的引用类型不能区分 123456789typeof undefined; //undefeinedtypeof &amp;apos;abd&amp;apos;; //stringtypeof 123; //numbertypeof true; //booleantypeo">
+<meta property="og:image" content="http://source.thankjava.com/2018/5/29/1527561668147.png">
+<meta property="og:image" content="http://source.thankjava.com/2018/5/29/1527561760928.png">
+<meta property="og:image" content="http://source.thankjava.com/2018/5/29/1527565930494.png">
+<meta property="og:updated_time" content="2018-06-06T07:57:46.910Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js基础知识点1">
+<meta name="twitter:description" content="js变量类型 Array Function Object引用类型 typeof运算符：只能区分值类型的变量,引用类型除了funciton之外其他的引用类型不能区分 123456789typeof undefined; //undefeinedtypeof &amp;apos;abd&amp;apos;; //stringtypeof 123; //numbertypeof true; //booleantypeo">
+<meta name="twitter:image" content="http://source.thankjava.com/2018/5/29/1527561668147.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/20/js基础知识点1/"/>
+
+
+
+
+
+  <title> js基础知识点1 | Zhiyuan Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhiyuan Yang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/20/js基础知识点1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/qazyuan.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhiyuan Yang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                js基础知识点1
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-20T00:00:00+08:00">
+                2017-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="js变量类型"><a href="#js变量类型" class="headerlink" title="js变量类型"></a>js变量类型</h3><ul>
+<li>Array Function Object引用类型</li>
+<li><p>typeof运算符：只能区分值类型的变量,引用类型除了funciton之外其他的引用类型不能区分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">typeof undefined; //undefeined</div><div class="line">typeof &apos;abd&apos;; //string</div><div class="line">typeof 123; //number</div><div class="line">typeof true; //boolean</div><div class="line"></div><div class="line">typeof &#123;&#125;; //object</div><div class="line">typeof []; //object</div><div class="line">typeof null; //object</div><div class="line">typeof console.log //function</div></pre></td></tr></table></figure>
+</li>
+<li><p>instanceof instanceof运算符用来判断一个构造函数的prototype属性所指向的对象是否存在另外一个要检测对象的原型链上</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//语法</div><div class="line">obj instanceof Object;//true 实例obj在不在Object构造函数中</div><div class="line"></div><div class="line">//用法1 obj instanceof Object 检测Object.prototype是否存在于参数obj的原型链上。</div><div class="line">function Person()&#123;&#125;;</div><div class="line">var p =new Person();</div><div class="line">console.log(p instanceof Person);//true</div><div class="line"></div><div class="line">//用法2 继承中判断实例是否属于它的父类</div><div class="line">function Person()&#123;&#125;;</div><div class="line">function Student()&#123;&#125;;</div><div class="line">var p =new Person();</div><div class="line">Student.prototype=p;//继承原型</div><div class="line">var s=new Student();</div><div class="line">console.log(s instanceof Student);//true</div><div class="line">console.log(s instanceof Person);//true</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="变量计算"><a href="#变量计算" class="headerlink" title="变量计算"></a>变量计算</h3><ul>
+<li><p>强制类型转换</p>
+<ul>
+<li><p>字符串拼接 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">100 + &apos;12&apos; = 10012</div></pre></td></tr></table></figure>
+</li>
+<li><p>==运算符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">100 == &apos;100&apos; //true</div><div class="line">null == undefined //true</div><div class="line"></div><div class="line">var obj = &#123;&#125;;</div><div class="line">obj.a == null;//true</div><div class="line">obj.a == undefined; //true</div><div class="line">obj.a === null; //false</div><div class="line">obj.a === undefined; //true</div></pre></td></tr></table></figure>
+</li>
+<li><p>if语句</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var b = 99;</div><div class="line">if (b) &#123;&#125; //b转换成boolean类型</div><div class="line"></div><div class="line">&lt;!--if false--&gt;</div><div class="line">if(0)</div><div class="line">if(&apos;&apos;)</div><div class="line">if(null)</div><div class="line">if(undefined)</div><div class="line">if(false)</div><div class="line">if(NAN)</div></pre></td></tr></table></figure>
+</li>
+<li><p>逻辑运算符</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">console.log(10 &amp;&amp; 0); //0</div><div class="line">console.log(10 || &apos;&apos;); //10</div><div class="line">console.log(!window.abc); //true</div><div class="line"></div><div class="line">var a = 100;</div><div class="line">console.log(!!a); //true</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="js中的内置函数"><a href="#js中的内置函数" class="headerlink" title="js中的内置函数"></a>js中的内置函数</h3><ul>
+<li>Object、Array、Boolean、Number、String、Function、Date、RegExp、Error</li>
+</ul>
+<h3 id="如何理解JSON–js对象-JSON数据格式"><a href="#如何理解JSON–js对象-JSON数据格式" class="headerlink" title="如何理解JSON–js对象 JSON数据格式"></a>如何理解JSON–js对象 JSON数据格式</h3><pre><code>var aa = {a: 10; b:20};
+JSON.stringfy(aa); //把对象变为字符串
+JSON.parse(aa); //把字符串变为对象
+</code></pre><h3 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h3><ul>
+<li><p>原型规则和示例</p>
+<ul>
+<li>所有的引用类型(数组、对象、函数),都具有对象特性，即可自由扩展属性(除了null)</li>
+<li>所有的引用类型(数组、对象、函数),都有一个<em>proto</em>(也称隐式原型)属性，属性值是一个普通的对象</li>
+<li>所有的函数都有一个prototype(也称显式原型)属性，属性值也是一个普通的对象</li>
+<li><p>所有的引用类型(数组、对象、函数),<em>proto</em>属性值指向它的构造函数的’prototype’属性值</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;&#125;;</div><div class="line">obj.name=&quot;yang&quot;;</div><div class="line">obj.__proto__ === Object.prototype</div></pre></td></tr></table></figure>
+</li>
+<li><p>当试图得到一个对象的某个属性时，如果这个对象本身没有这个属性，那么会去它的<em>proto</em>(即它的构造函数的prototype)中寻找</p>
+</li>
+</ul>
+</li>
+<li><p>原型与原型链</p>
+<p>  <img src="http://source.thankjava.com/2018/5/29/1527561668147.png" alt="原型"><br>  <img src="http://source.thankjava.com/2018/5/29/1527561760928.png" alt="原型链"></p>
+<ul>
+<li><p>如何判断一个变量是数组类型</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var a = [];</div><div class="line">a instanceof Array; //true</div><div class="line">typeof a //&quot;object&quot; typeof 无法判断是否是数组</div></pre></td></tr></table></figure>
+</li>
+<li><p>写有一个原型链继承的例子</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">sample1：</div><div class="line">function School () &#123;</div><div class="line">    this.schoolName = &apos;ucla&apos;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function Student (name, age) &#123;</div><div class="line">    this.name = name;</div><div class="line">    this.age = age;</div><div class="line">&#125;</div><div class="line">Student.prototype = new School();</div><div class="line">var stu = new Student(&apos;yang&apos;, 180);</div><div class="line">console.log(stu.schoolName);</div></pre></td></tr></table></figure>
+</li>
+<li><p>描述new一个对象的过程<br>  <img src="http://source.thankjava.com/2018/5/29/1527565930494.png" alt="image"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="函数声明与函数表达式"><a href="#函数声明与函数表达式" class="headerlink" title="函数声明与函数表达式"></a>函数声明与函数表达式</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//函数声明，声明可以放在调用后面</div><div class="line">fn1();</div><div class="line">function fn1() &#123;&#125; //函数声明</div><div class="line"></div><div class="line">//函数表达式，调用放在前面会报错</div><div class="line">fn2(); </div><div class="line">var fn2 = function () &#123;&#125; //函数表达式</div></pre></td></tr></table></figure>
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/16/前端编码规范/" rel="next" title="前端编码规范">
+                <i class="fa fa-chevron-left"></i> 前端编码规范
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/21/if-else代码重构/" rel="prev" title="if else代码重构">
+                if else代码重构 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/qazyuan.png"
+               alt="Yuan" />
+          <p class="site-author-name" itemprop="name">Yuan</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#js变量类型"><span class="nav-number">1.</span> <span class="nav-text">js变量类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量计算"><span class="nav-number">2.</span> <span class="nav-text">变量计算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js中的内置函数"><span class="nav-number">3.</span> <span class="nav-text">js中的内置函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何理解JSON–js对象-JSON数据格式"><span class="nav-number">4.</span> <span class="nav-text">如何理解JSON–js对象 JSON数据格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型和原型链"><span class="nav-number">5.</span> <span class="nav-text">原型和原型链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数声明与函数表达式"><span class="nav-number">6.</span> <span class="nav-text">函数声明与函数表达式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuan</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
