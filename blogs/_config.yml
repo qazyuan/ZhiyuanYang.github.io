@@ -67,6 +67,8 @@ theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
+
 deploy:
   type: git
-  repo: https://github.com/qazyuan/qazyuan.github.io.git
+  repo: git@github.com:qazyuan/qazyuan.github.io.git
+  branch: master
