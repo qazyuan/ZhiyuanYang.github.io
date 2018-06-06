@@ -1,0 +1,843 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JS,notes," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="6.1 理解对象 属性类型   属性类型分为访问器属性和数据属性   访问器属性:   数据属性:   定义多个属性   defineProperties() 接收两个对象参数：一个是要添加和修改其属性的对象；另一个是第一个对象中要添加和修改的属性  读取属性的特性  6.2 创建对象 工厂模式(定义函数，引用函数) 构造函数模式(构造函数) 原型模式   12345678910function">
+<meta name="keywords" content="JS,notes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript高级程序设计笔记(部分)">
+<meta property="og:url" content="http://yoursite.com/2017/07/01/JavaScript高级程序设计笔记-部分/index.html">
+<meta property="og:site_name" content="Zhiyuan Yang">
+<meta property="og:description" content="6.1 理解对象 属性类型   属性类型分为访问器属性和数据属性   访问器属性:   数据属性:   定义多个属性   defineProperties() 接收两个对象参数：一个是要添加和修改其属性的对象；另一个是第一个对象中要添加和修改的属性  读取属性的特性  6.2 创建对象 工厂模式(定义函数，引用函数) 构造函数模式(构造函数) 原型模式   12345678910function">
+<meta property="og:updated_time" content="2017-10-16T03:06:55.805Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript高级程序设计笔记(部分)">
+<meta name="twitter:description" content="6.1 理解对象 属性类型   属性类型分为访问器属性和数据属性   访问器属性:   数据属性:   定义多个属性   defineProperties() 接收两个对象参数：一个是要添加和修改其属性的对象；另一个是第一个对象中要添加和修改的属性  读取属性的特性  6.2 创建对象 工厂模式(定义函数，引用函数) 构造函数模式(构造函数) 原型模式   12345678910function">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/01/JavaScript高级程序设计笔记-部分/"/>
+
+
+
+
+
+  <title> JavaScript高级程序设计笔记(部分) | Zhiyuan Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhiyuan Yang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/01/JavaScript高级程序设计笔记-部分/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/qazyuan.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhiyuan Yang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript高级程序设计笔记(部分)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-01T21:17:30+08:00">
+                2017-07-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="6-1-理解对象"><a href="#6-1-理解对象" class="headerlink" title="6.1 理解对象"></a>6.1 理解对象</h4><ul>
+<li><p>属性类型</p>
+<p>  属性类型分为访问器属性和数据属性</p>
+<p>  <strong>访问器属性:</strong></p>
+<p>  <strong>数据属性:</strong> </p>
+</li>
+<li><p>定义多个属性</p>
+<p>  defineProperties() 接收两个对象参数：一个是要添加和修改其属性的对象；另一个是第一个对象中要添加和修改的属性</p>
+</li>
+<li>读取属性的特性</li>
+</ul>
+<h4 id="6-2-创建对象"><a href="#6-2-创建对象" class="headerlink" title="6.2 创建对象"></a>6.2 创建对象</h4><ul>
+<li><strong>工厂模式(定义函数，引用函数)</strong></li>
+<li><strong>构造函数模式(构造函数)</strong></li>
+<li><p><strong>原型模式</strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Person() &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype.name = &quot;yang&quot;;</div><div class="line">Person.prototype.age = 90;</div><div class="line">Person.prototype.job = &quot;software&quot;;</div><div class="line">Person.prototype.sayName = function () &#123;</div><div class="line">    console.log(this.name);</div><div class="line">&#125;</div><div class="line">var person1 = new Person();</div></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>理解原型对象</strong></p>
+<p>  创建一个函数的时候回根据一组特定的规则为该函数传建一个prototype的属性，这个属性指向函数的原型对象。</p>
+<p>  在默认情况下，所有原型对象都会自动获得一个constructor属性，这个属性的值是一个指向prototype属性所在函数的指针</p>
+</li>
+<li><p><strong>原型对象与in操作符</strong></p>
+<p>  <strong>in操作符(两种使用方式)：</strong> 一是for (var in )   二是单独使用判断对象是否能够访问给定的属性</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function Person() &#123;</div><div class="line">&#125;</div><div class="line">Person.prototype.name = &quot;yang&quot;;</div><div class="line">Person.prototype.age = 90;</div><div class="line">Person.prototype.job = &quot;software&quot;;</div><div class="line">Person.prototype.sayName = function () &#123;</div><div class="line">    console.log(this.name);</div><div class="line">&#125;</div><div class="line">var person1 = new Person();</div><div class="line">person1.age = 78;</div><div class="line">for (var item in person1) &#123;</div><div class="line">    console.log(item);</div><div class="line">&#125;//name, age, job, sayName</div><div class="line">console.log(&quot;name&quot; in person1); //true</div><div class="line">console.log(person1.hasOwnProperty(&apos;name&apos;));//false</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>更简单的原型语法</strong></p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function Person1() &#123;</div><div class="line">&#125;</div><div class="line">Person1.prototype = &#123;</div><div class="line">    constructor: Person1,  //需要重新给constructor赋值</div><div class="line">    name: &quot;yang&quot;,</div><div class="line">    age: 90,</div><div class="line">    job: &quot;software&quot;,</div><div class="line">    sayName: function () &#123;</div><div class="line">        console.log(this.name)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var friend = new Person1();</div><div class="line">console.log(friend.constructor == Person1);//true</div></pre></td></tr></table></figure>
+</code></pre></li>
+<li><p><strong>原型的动态性</strong></p>
+<p>  我们对原型对象所做的修改能够立即在实例上反映出来</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Person3 () &#123;</div><div class="line">&#125;</div><div class="line">var friend11 = new Person3();</div><div class="line">Person3.prototype = &#123;</div><div class="line">    name: &quot;yy&quot;,</div><div class="line">    constructor: Person3</div><div class="line">&#125; </div><div class="line">//以字面量的方式重写原型对象会切断现有原型与任何之前已经存在的对象实例之间的联系</div><div class="line">console.log(friend11.name); //undefined</div></pre></td></tr></table></figure>
+</code></pre></li>
+<li><p><strong>原生对象的原型</strong></p>
+<p>  通过原生对象的原型，不仅可以取得所有默认的方法的应用，也可以定义新的方法</p>
+</li>
+<li><p><strong>原型对象的问题</strong></p>
+<p>  原型中所有属性是被很多实例共享的，这种共享对于函数非常合适，但对于包含引用类型的值得属性来说就不方便了。</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Person() &#123;&#125;;</div><div class="line">Person.prototype = &#123;</div><div class="line">    constructor: Person,</div><div class="line">    name: [&quot;11&quot;, &quot;222&quot;]</div><div class="line">&#125;</div><div class="line">var person1 = new Person();</div><div class="line">var person2 = new Person();</div><div class="line">person1.name.push(&quot;333&quot;);</div><div class="line">console.log(person2.name); //&quot;11&quot;, &quot;222&quot;, &quot;333&quot;</div></pre></td></tr></table></figure>
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>组合使用构造函数模式和原型模式</strong></p>
+<p>  创建自定义类型最常见的方式，构造函数模型用于定义实例属性，而原型模式用于定义方法和共享的属性。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">function Person22(name, age, job) &#123;</div><div class="line">    this.name = name;</div><div class="line">    this.age = age;</div><div class="line">    this.job = job;</div><div class="line">    this.friends = [&quot;ann&quot;, &quot;may&quot;];</div><div class="line">&#125;;</div><div class="line"></div><div class="line">Person22.prototype = &#123;</div><div class="line">    constructor: Person22,</div><div class="line">    sayName: function() &#123;</div><div class="line">        console.log(this.name);</div><div class="line">        console.log(this);//指向调用它的实例对象</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var people1 = new Person22(&quot;lily&quot;, &quot;34&quot;, &quot;doctor&quot;);</div><div class="line">var people2 = new Person22(&quot;jue&quot;, &quot;45&quot;, &quot;master&quot;);</div><div class="line">people1.friends.push(&quot;Van&quot;);</div><div class="line">people1.sayName(); // lily</div><div class="line">console.log(people1.friends === people2.friends); //false</div><div class="line">console.log(people1.sayName === people2.sayName); //true</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>动态原型模式</strong></p>
+<p>  可以通过检查某个应该存在的方法是否有效来决定是否需要初始化原型。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Person(name, age) &#123;</div><div class="line">    this.name = name;</div><div class="line">    this.age = age;</div><div class="line">    if(typeof this.sayName != &apos;function&apos;) &#123; //根据判断来动态构建原型</div><div class="line">        Person.prototype.sayName = function () &#123;</div><div class="line">            console.log(this.name);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var friend = new Person(&quot;yyy&quot;, &quot;89&quot;);</div><div class="line">friend.sayName(); //yyy</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><strong>寄生构造函数模式</strong></p>
+<p>  构造函数在不返回值的情况下,默认会返回新对象实例。而通过在构造函数的末尾添加一个return语句，可以重写调用构造函数时返回的值.</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Person(name, age) &#123;</div><div class="line">    var o = new Object();</div><div class="line">    o.name = name;</div><div class="line">    o.age = age;</div><div class="line">    o.sayName = function () &#123;</div><div class="line">        console.log(this.name);</div><div class="line">    &#125;</div><div class="line">    return o;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var people = new Person(&quot;yyyy&quot;, &apos;89&apos;);</div><div class="line">people.sayName(); //yyyy</div></pre></td></tr></table></figure>
+<p>  例：创建一个具有额外方法的特殊数组，由于不能修改Array构造函数，因此可以使用这个模式</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function specialArray() &#123;</div><div class="line">    var values = new Array();</div><div class="line">    values.push.apply(values, arguments);</div><div class="line">    values.toFormatString = function() &#123;</div><div class="line">        return this.join(&apos;|&apos;);</div><div class="line">    &#125;</div><div class="line">    return values;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var values = new specialArray(&quot;red&quot;, &quot;blue&quot;);</div><div class="line">console.log(values.toFormatString());</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><strong>稳妥的构造函数模式</strong></p>
+<p>  稳妥对象是指没有公共属性，而且其他方法也不引用this的对象。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Person(name, age) &#123;</div><div class="line">    var o = new Object();</div><div class="line">    o.name = name;</div><div class="line">    o.age = age;</div><div class="line">    o.sayName = function () &#123;</div><div class="line">        console.log(name);</div><div class="line">    &#125;</div><div class="line">    return o;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var people = Person(&quot;yyyy&quot;, &apos;89&apos;);</div><div class="line">people.sayName(); //yyyy</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="6-3-继承"><a href="#6-3-继承" class="headerlink" title="6.3 继承"></a>6.3 继承</h4><p>许多OO语言都只是两种继承方式：接口继承和实现继承。接口继承只继承方法签名，而实现继承则继承实际的方法。ECMAScript只支持实现继承，而且其实现继承主要是依靠原型链来实现的。</p>
+<ul>
+<li><p><strong>原型链</strong></p>
+<p>  原型链作为实现继承的主要方法，其基本思想是利用原型让一个引用类型继承另一个引用类型的属性和方法。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">实现原型链的一种基本模式：</div><div class="line"></div><div class="line">function SuperType () &#123;</div><div class="line">    this.property = true;</div><div class="line">&#125;</div><div class="line"></div><div class="line">SuperType.prototype.getSuperValue = function () &#123;</div><div class="line">    return this.property;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">function SubType () &#123;</div><div class="line">    this.subproperty = false;</div><div class="line">&#125;</div><div class="line"></div><div class="line">SubType.prototype = new SuperType();</div><div class="line">SubType.prototype.getSubValue = function () &#123;</div><div class="line">    return this.subproperty;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var instance = new SubType();</div><div class="line">console.log(instance.getSuperValue());</div></pre></td></tr></table></figure>
+<ul>
+<li><p>默认的原型</p>
+<p>  所有的引用类型默认都继承了Object,这个继承也是通过原型链实现的，指向Object.prototype</p>
+</li>
+<li><p>原型和实例的关系</p>
+<p>  第一种方式是使用instanceof操作符</p>
+<p>  第二种方式是使用isPrototypeOf()方法，只要原型链中出现过的原型，都可以说是该原型链所派生的实例的原型。</p>
+</li>
+<li><p>谨慎地定义方法</p>
+<p>  给原型添加方法的代码一定要放在替换原型的语句之后。</p>
+<p>  使用字面量添加新方法，会导致调用构造函数的方法无效</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">SubType.prototype = new SuperType();</div><div class="line">//使用字面量添加新方法，会导致上面一行代码无效</div><div class="line">SubType.prototype.prototype = &#123;</div><div class="line">    getSubValue: function() &#123;</div><div class="line">        return this.subproperty;</div><div class="line">    &#125;,</div><div class="line">    </div><div class="line">    someOtherMethod: function() &#123;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>原型链的问题</p>
+<p>  包含引用类型的原型属性会被所有实例共享。</p>
+</li>
+</ul>
+</li>
+<li><p><strong><strong>借用构造函数实现继承</strong></strong></p>
+<p>  基本思想：在子类型构造函数的内部调用超类型构造函数</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function SuperType() &#123;</div><div class="line">    this.colors = [&apos;red&apos;, &apos;blue&apos;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">function SubType() &#123;</div><div class="line">    SuperType.call(this);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var instance1 = new SubType();</div><div class="line">instance1.colors.push(&apos;black&apos;);</div><div class="line">console.log(instance1.colors); //red,blue,black</div><div class="line"></div><div class="line">var isntance2 = new SubType();</div><div class="line">console.log(isntance2.colors); //red,blue</div></pre></td></tr></table></figure>
+</code></pre><ul>
+<li><p>传递参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function SuperType(name)&#123;</div><div class="line">    this.name = name;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function SubType() &#123;</div><div class="line">    SuperType.call(this, &quot;Amy&quot;);</div><div class="line">    this.age = 111;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var instance = new SubType();</div><div class="line">console.log(instance.name + &quot;####&quot; + instance.age); //Amy####111</div></pre></td></tr></table></figure>
+</li>
+<li><p>借用构造函数的问题</p>
+<p>方法都在构造函数中定义，不能进行方法复用。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>组合继承</strong></p>
+<p>  基本思想： 将原型链和借用构造函数结合，使用原型链实现对原型属性和方法的继承，通过借用构造函数来实现对实例属性的继承。</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">function SuperType(name)&#123;</div><div class="line">    this.name = name;</div><div class="line">    this.colors = [&quot;red&quot;, &quot;blue&quot;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">SuperType.prototype.sayName = function () &#123;</div><div class="line">    console.log(this.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function subType(name, age) &#123;</div><div class="line">    SuperType.call(this, name);</div><div class="line">    this.age = age;</div><div class="line">&#125;</div><div class="line"></div><div class="line">subType.prototype = new SuperType();</div><div class="line">subType.prototype.constructor = subType;</div><div class="line">subType.prototype.sayAge = function () &#123;</div><div class="line">    console.log(this.age);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var instance1 = new subType(&quot;Yan&quot;, &apos;11&apos;);</div><div class="line">instance1.colors.push(&apos;black&apos;);</div><div class="line">instance1.sayName(); //Yan</div><div class="line">instance1.sayAge(); //11</div><div class="line">console.log(instance1.colors);</div><div class="line"></div><div class="line">var isntance2 = new subType(&apos;YUan&apos;, &quot;1233&quot;);</div><div class="line">console.log(isntance2.colors);</div></pre></td></tr></table></figure>
+</code></pre></li>
+<li><p><strong>原型式继承</strong></p>
+<p>  基本思想：借助原型可以基于已有的对象传建新对象</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function obj(obj) &#123;</div><div class="line">    function F() &#123;&#125;</div><div class="line">    F.prototype = obj;</div><div class="line">    return new F();</div><div class="line">&#125;</div><div class="line">var person = &#123;</div><div class="line">    name: &quot;aaaa&quot;,</div><div class="line">    friends: [&quot;shell&quot;, &quot;Ada&quot;]</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var aperson = obj(person);</div><div class="line">aperson.friends.push(&quot;aperson&quot;);</div><div class="line">var bperson = obj(person);</div><div class="line">bperson.friends.push(&quot;bbperson&quot;);</div><div class="line">console.log(person.friends);</div></pre></td></tr></table></figure>
+<ul>
+<li><p>ES5用Object.create()方法规范化了原型式继承</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var person = &#123;</div><div class="line">    name: &quot;aaaa&quot;,</div><div class="line">    friends: [&quot;shell&quot;, &quot;Ada&quot;]</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var anotherPerson = Object.create(person);</div><div class="line">anotherPerson.friends.push(&apos;another&apos;);</div><div class="line">console.log(person.friends); //shell, Ada, another</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>寄生式继承</strong></p>
+<p>  基本思想： 创建一个仅用于封装继承过程的函数，该函数在内部以某种方式来增强对象，最后再返回对象。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">function object(obj) &#123;</div><div class="line">    function F() &#123;&#125;</div><div class="line">    F.prototype = obj;</div><div class="line">    return new F();</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">var person = &#123;</div><div class="line">    name: &quot;aaaa&quot;,</div><div class="line">    friends: [&quot;shell&quot;, &quot;Ada&quot;]</div><div class="line">&#125;;</div><div class="line"></div><div class="line">function createB (obj) &#123;</div><div class="line">    var clone = object(obj);</div><div class="line">    clone.sayHi = function () &#123;</div><div class="line">        console.log(&quot;Hi&quot;);</div><div class="line">    &#125;</div><div class="line">    return clone;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var another = createB(person);</div><div class="line">another.sayHi();</div></pre></td></tr></table></figure>
+</li>
+<li><p>寄生组合式继承</p>
+<p>  基本思路： 通过借用构造函数来继承属性，通过原型链的混成形式来继承方法</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">function obj(obj) &#123;</div><div class="line">    function F() &#123;&#125;</div><div class="line">    F.prototype = obj;</div><div class="line">    return new F();</div><div class="line">&#125;</div><div class="line"></div><div class="line">function inherit(subType, superType) &#123;</div><div class="line">    var prototype = obj(SuperType.prototype);</div><div class="line">    prototype.constructor = subType;</div><div class="line">    subType.prototype = prototype;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function SuperType(name) &#123;</div><div class="line">    this.name = name;</div><div class="line">    this.colors = [&quot;shell&quot;, &quot;Ada&quot;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">SuperType.prototype.sayName = function () &#123;</div><div class="line">    console.log(this.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function SubType (name, age) &#123;</div><div class="line">    SuperType.call(this, name);</div><div class="line">    this.age = age;</div><div class="line">&#125;</div><div class="line"></div><div class="line">inherit(SubType, SuperType);</div><div class="line"></div><div class="line">SubType.prototype.sayAge = function () &#123;</div><div class="line">    console.log(this.age);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var instance = new SubType(&quot;yy&quot;, &quot;111&quot;);</div><div class="line">instance.sayName(); //yy</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag"># JS</a>
+          
+            <a href="/tags/notes/" rel="tag"># notes</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/13/JavaScript语言精粹/" rel="next" title="javaScript语言精粹笔记">
+                <i class="fa fa-chevron-left"></i> javaScript语言精粹笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/23/webpack打包实践/" rel="prev" title="webpack打包实践">
+                webpack打包实践 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/qazyuan.png"
+               alt="Yuan" />
+          <p class="site-author-name" itemprop="name">Yuan</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-理解对象"><span class="nav-number">1.</span> <span class="nav-text">6.1 理解对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-创建对象"><span class="nav-number">2.</span> <span class="nav-text">6.2 创建对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-继承"><span class="nav-number">3.</span> <span class="nav-text">6.3 继承</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuan</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
